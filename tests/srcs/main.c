@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:19:11 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 19:10:30 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 22:06:57 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(void)
 		push_test,
 		rotate_test,
 		rev_rotate_test,
+		is_stack_sorted_test,
 		NULL
 	};
 	int			ret_val;

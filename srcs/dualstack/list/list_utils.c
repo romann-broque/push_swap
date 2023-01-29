@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 01:08:24 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 14:35:46 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 22:19:20 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ int	*get_numbers(char **arg, const size_t count)
 		}
 	}
 	return (numbers);
+}
+
+bool	is_stack_sorted(t_list *stack)
+{
+	while (stack != NULL && stack->next != NULL
+		&& *((int *)(stack->content)) <= *((int *)(stack->next->content)))
+		stack = stack->next;
+	return (stack == NULL || stack->next == NULL);
 }
 
 void	ft_lstprint(const t_list *root)

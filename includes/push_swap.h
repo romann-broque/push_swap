@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 21:43:31 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 22:00:27 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	print_dualstack(t_dualstack *dual);
 
 int		*get_numbers(char **arg, const size_t count);
 t_list	*gen_list(int *numbers, const size_t count);
+bool	is_stack_sorted(t_list *stack);
 void	ft_lstprint(const t_list *root);
 
 #endif
