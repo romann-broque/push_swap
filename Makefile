@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/29 17:31:55 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/29 18:03:57 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,20 @@ DEFAULT_ARG = 1 0 3 4
 ##############
 
 PATH_SRCS += srcs/
-PATH_SRCS += srcs/list/
+PATH_SRCS += srcs/dualstack/
+PATH_SRCS += srcs/dualstack/list/
 PATH_SRCS += srcs/operations/
+PATH_SRCS += srcs/sort/
 
 # srcs/
 
 SRCS += push_swap.c
 
-# srcs/list/
+# srcs/dualstack/
+
+SRCS += print_dualstack.c
+
+# srcs/dualstack/list/
 
 SRCS += list_utils.c
 
@@ -43,6 +49,11 @@ SRCS += list_utils.c
 
 SRCS += swap.c
 SRCS += push.c
+
+# srcs/sort/
+
+SRCS += sort_dualstack.c
+SRCS += sort_stack.c
 
 vpath %.c $(PATH_SRCS)
 

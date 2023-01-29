@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 17:37:45 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 18:03:06 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ typedef struct s_dualstack
 /// FUNCTIONS ///
 /////////////////
 
+// SORT //
+
+// sort_dualstack.c
+
+void	sort_dualstack(t_dualstack *dual);
+
+// sort_stack.c
+
+void	sort_stack(t_list *stack_a);
+
 // OPERATIONS //
 
 // swap.c
@@ -35,12 +45,21 @@ typedef struct s_dualstack
 void	swap(t_list *stack);
 void	sa(t_dualstack	*dual);
 void	sb(t_dualstack	*dual);
+void	ss(t_dualstack	*dual);
 
 // push.c
 
 void	push(t_list **stack_src, t_list **stack_dest);
 void	pa(t_dualstack *dual);
 void	pb(t_dualstack *dual);
+
+// DUAL_STACK //
+
+// print_dualstack.c
+
+void	print_dualstack(t_dualstack *dual);
+
+// LIST //
 
 // list_utils.c
 

@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   print_dualstack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 17:14:26 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 17:45:41 by rbroque          ###   ########.fr       */
+/*   Created: 2023/01/29 17:49:34 by rbroque           #+#    #+#             */
+/*   Updated: 2023/01/29 17:58:18 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_list **stack_src, t_list **stack_dest)
+void	print_dualstack(t_dualstack *dual)
 {
-	t_list	*new;
-	t_list	*root;
+	t_list	*a_cpy;
+	t_list	*b_cpy;
 
-	root = *stack_src;
-	if (*stack_src != NULL)
+	a_cpy = dual->a;
+	b_cpy = dual->b;
+	while (a_cpy || b_cpy)
 	{
-		new = ft_lstnew((*stack_src)->content);
-		if (new != NULL)
+		if (a_cpy != NULL)
 		{
-			ft_lstadd_front(stack_dest, new);
-			*stack_src = (*stack_src)->next;
-			free(root);
+			ft_printf("%d", *(int *)(a_cpy->content));
+			a_cpy = a_cpy->next;
 		}
+		ft_printf("      ");
+		if (b_cpy != NULL)
+		{
+			ft_printf("%d", *(int *)(b_cpy->content));
+			b_cpy = b_cpy->next;
+		}
+		ft_printf("\n");
 	}
-}
-
-void	pa(t_dualstack *dual)
-{
-	push(&(dual->b), &(dual->a));
-}
-
-void	pb(t_dualstack *dual)
-{
-	push(&(dual->a), &(dual->b));
+	ft_printf("a      b\n");
+	ft_printf("--------\n");
 }

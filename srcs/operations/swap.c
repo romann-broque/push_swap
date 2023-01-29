@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:18:54 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 14:32:53 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 17:59:57 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,10 @@ void	sa(t_dualstack	*dual)
 void	sb(t_dualstack	*dual)
 {
 	swap(dual->b);
+}
+
+void	ss(t_dualstack	*dual)
+{
+	sa(dual);
+	sb(dual);
 }

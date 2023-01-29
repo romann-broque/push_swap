@@ -1,5 +1,6 @@
 {
 	"files.associations": {
-		"run_tests.h": "c"
+		"run_tests.h": "c",
+		"push_swap.h": "c"
 	}
 }
