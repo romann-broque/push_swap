@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:05:09 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 18:18:16 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 18:21:50 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,18 @@ void	rotate(t_list *stack)
 	}
 }
 
-void	ra(t_dualstack	*dual)
+void	ra(t_dualstack *dual)
 {
 	rotate(dual->a);
 }
 
-void	rb(t_dualstack	*dual)
+void	rb(t_dualstack *dual)
 {
 	rotate(dual->b);
+}
+
+void	rr(t_dualstack *dual)
+{
+	ra(dual);
+	rb(dual);
 }
