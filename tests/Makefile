@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:11:15 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/15 17:45:44 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/29 00:49:03 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,7 @@ PATH_SRCS += srcs/
 
 SRCS += main.c
 SRCS += test_utils.c
-SRCS += parser.test.c
-#SRCS += put_pixel.test.c
+SRCS += operation.test.c
 
 vpath %.c $(PATH_SRCS)
 
@@ -54,21 +53,17 @@ FDF_OBJS = $(filter-out ../objs/main.o,$(FDF_CMPL))
 LIB_FOLDER = ../libft/
 LIB = $(LIB_FOLDER)/libft.a
 
-LIB_FDF = libfdf.a
+LIB_TEST = libtest.a
 
 ###################
 #### INCLUDES #####
 ###################
 
 INCLUDES_LIB += -I $(LIB_FOLDER)/includes/
-INCLUDES_LIB += -I /usr/include/X11/
-INCLUDES_LIB += -I ../minilibx-linux/
 INCLUDES += ../includes/
 TEST_INCLUDES += includes/
 
-MINILIBX += ../minilibx-linux/libmlx_Linux.a
-LINKS += -L/usr/lib -lXext -lX11 -lm -lz
-HEADER += $(INCLUDES)/fdf.h
+HEADER += $(INCLUDES)/push_swap.h
 TEST_HEADER += $(TEST_INCLUDES)/run_tests.h
 
 ##################
@@ -126,19 +121,16 @@ endif
 ###############
 
 all: $(NAME)
-	$(ECHOC) $(BLUE)"\n""CLASSIC TESTS"$(NC)"\n"
 	./$(NAME)
-#	$(ECHOC) $(BLUE)"\n""MLX_CRASH TESTS"$(NC)"\n"
-#	env -i ./$(NAME)
 
-$(NAME): $(LIB_FDF) $(OBJS)
+$(NAME): $(LIB_TEST) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(MAIN_OBJS) -o $(NAME) -I $(INCLUDES) $(INCLUDES_LIB) $(LINKS) $(LIB_FDF) $(LIB) $(MINILIBX)
 	$(ECHOC) $(GREEN) "--> $(NAME) COMPILED !"$(NC)"\n\n"
 
-$(LIB_FDF):
+$(LIB_TEST):
 	echo -e $(BLUE) "\n====> Building tests <===="$(NC)"\n"
-	echo -e $(BLUE) "\n====> Building libfdf.a"$(NC)"\n"
-	ar rcs $(LIB_FDF) $(FDF_OBJS)
+	echo -e $(BLUE) "\n====> Building libtest.a"$(NC)"\n"
+	ar rcs $(LIB_TEST) $(FDF_OBJS)
 	$(ECHOC) $(GREEN) "--> $(NAME) COMPILED !"$(NC)"\n"
 	echo -e $(BLUE) "\n====> Building $(NAME)"$(NC)"\n"
 
@@ -153,8 +145,8 @@ clean:
 
 fclean: clean
 	$(ECHOC) $(YELLOW) "Cleaning up $(NAME)..." $(NC)
-	$(RM) $(LIB_FDF)
-	$(ECHOC) $(GREEN) "--> $(LIB_FDF) deleted !\n"
+	$(RM) $(LIB_TEST)
+	$(ECHOC) $(GREEN) "--> $(LIB_TEST) deleted !\n"
 	$(RM) $(NAME)
 	$(ECHOC) $(GREEN) "--> $(NAME) deleted !\n"
 

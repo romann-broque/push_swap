@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   operation.test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 00:28:07 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 00:30:04 by rbroque          ###   ########.fr       */
+/*   Created: 2023/01/29 00:40:31 by rbroque           #+#    #+#             */
+/*   Updated: 2023/01/29 00:41:28 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "run_tests.h"
 
-int	main(int ac, char **av)
+int	operation_test(void)
 {
-	int	i;
+	static int	(*tests[])(const size_t) = {
+		NULL};
 
-	i = 0;
-	while (i < ac -1)
-	{
-		ft_printf("--> %d\n", av[i + 1]);
-		++i;
-	}
-	return (EXIT_SUCCESS);
+	display_title(OPERATION_TEST_TITLE);
+	return (test_sequence(tests));
+
 }

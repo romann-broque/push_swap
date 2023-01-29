@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/29 00:32:41 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/29 01:10:40 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,18 @@ DEFAULT_ARG = 1 0 3 4
 ##############
 
 PATH_SRCS += srcs/
+PATH_SRCS += srcs/list/
+PATH_SRCS += srcs/operations/
 
 # srcs/
 
-SRCS += main.c
+SRCS += push_swap.c
+
+# srcs/list/
+
+SRCS += list_utils.c
+
+# srcs/operations/
 
 vpath %.c $(PATH_SRCS)
 
