@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/29 14:36:25 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/29 17:31:55 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ SRCS += list_utils.c
 # srcs/operations/
 
 SRCS += swap.c
-#SRCS += push.c
+SRCS += push.c
 
 vpath %.c $(PATH_SRCS)
 

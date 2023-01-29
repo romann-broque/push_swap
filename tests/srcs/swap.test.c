@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation.test.c                                   :+:      :+:    :+:   */
+/*   swap.test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 00:40:31 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 17:11:53 by rbroque          ###   ########.fr       */
+/*   Created: 2023/01/29 17:32:38 by rbroque           #+#    #+#             */
+/*   Updated: 2023/01/29 17:34:17 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	swap_test4(const size_t nb)
 	return (ret_val);
 }
 
-int	operation_test(void)
+int	swap_test(void)
 {
 	static int	(*tests[])(const size_t) = {
 		swap_test1,
@@ -83,7 +83,6 @@ int	operation_test(void)
 		swap_test4,
 		NULL};
 
-	display_title(OPERATION_TEST_TITLE);
+	display_title(SWAP_TEST_TITLE);
 	return (test_sequence(tests));
-
 }

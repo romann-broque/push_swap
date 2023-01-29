@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:19:11 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 00:40:06 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 17:35:36 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	main(void)
 {
 	static int	(*tester[])(void) = {
-		operation_test,
+		swap_test,
+		push_test,
 		NULL
 	};
 	int			ret_val;
