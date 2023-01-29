@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:11:15 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/29 17:40:37 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/29 18:14:54 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS += main.c
 SRCS += test_utils.c
 SRCS += swap.test.c
 SRCS += push.test.c
+SRCS += rotate.test.c
 
 vpath %.c $(PATH_SRCS)
 

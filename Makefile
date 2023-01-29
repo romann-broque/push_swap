@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/29 18:03:57 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/29 18:12:20 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRCS += list_utils.c
 
 SRCS += swap.c
 SRCS += push.c
+SRCS += rotate.c
 
 # srcs/sort/
 

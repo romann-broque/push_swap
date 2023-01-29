@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:18:47 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 17:35:23 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 18:15:02 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define TEST_TITLE "\n<====== TESTS ======>\n"
 # define SWAP_TEST_TITLE "\n<====== SWAP ======>\n\n"
 # define PUSH_TEST_TITLE "\n<====== PUSH ======>\n\n"
+# define ROTATE_TEST_TITLE "\n<====== ROTATE ======>\n\n"
 
 /////////////////////////////////
 //// <----- FUNCTIONS -----> ////
@@ -48,5 +49,6 @@ void	display_title(const char *title);
 
 int		swap_test(void);
 int		push_test(void);
+int		rotate_test(void);
 
 #endif

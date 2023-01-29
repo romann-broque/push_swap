@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 18:03:06 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 18:12:05 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ void	ss(t_dualstack	*dual);
 void	push(t_list **stack_src, t_list **stack_dest);
 void	pa(t_dualstack *dual);
 void	pb(t_dualstack *dual);
+
+// rotate.c
+
+void	rotate(t_list *stack);
+void	ra(t_dualstack	*dual);
+void	rb(t_dualstack	*dual);
 
 // DUAL_STACK //
 
