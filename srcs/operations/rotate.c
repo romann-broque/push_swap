@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:05:09 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 18:21:50 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 19:28:41 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	rotate(t_list *stack)
 {
-	void	*first_cont;
+	void	*tmp;
 
-	if (stack != NULL)
-		first_cont = stack->content;
 	while (stack != NULL)
 	{
+		tmp = stack->content;
 		if (stack->next != NULL)
-			stack->content = stack->next->content;
-		else
-			stack->content = first_cont;
+		{
+			stack->content = (stack->next)->content;
+			(stack->next)->content = tmp;
+		}
 		stack = stack->next;
 	}
 }

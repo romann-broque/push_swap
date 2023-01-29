@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 12:19:11 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 19:10:30 by rbroque          ###   ########.fr       */
+/*   Created: 2023/01/29 18:56:33 by rbroque           #+#    #+#             */
+/*   Updated: 2023/01/29 21:53:04 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "run_tests.h"
+#include "push_swap.h"
 
-int	main(void)
+void	rev_rotate(t_list **stack)
 {
-	static int	(*tester[])(void) = {
-		swap_test,
-		push_test,
-		rotate_test,
-		rev_rotate_test,
-		NULL
-	};
-	int			ret_val;
-	size_t		i;
+	t_list	*curr;
+	t_list	*last;
 
-	ret_val = EXIT_SUCCESS;
-	i = 0;
-	display_title(TEST_TITLE);
-	while (tester[i] != NULL)
+	curr = *stack;
+	last = ft_lstlast(*stack);
+	while (curr != NULL && curr->next != NULL)
 	{
-		if (tester[i]() == EXIT_FAILURE)
-			ret_val = EXIT_FAILURE;
-		++i;
+		if (curr->next->next == NULL)
+			curr->next = NULL;
+		curr = curr->next;
 	}
-	return (ret_val);
+	if (last != *stack)
+		last->next = *stack;
+	*stack = last;
 }
