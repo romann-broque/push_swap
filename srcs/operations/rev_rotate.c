@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:56:33 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 21:53:04 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 23:09:49 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,20 @@ void	rev_rotate(t_list **stack)
 	if (last != *stack)
 		last->next = *stack;
 	*stack = last;
+}
+
+void	rra(t_dualstack *dual)
+{
+	rev_rotate(&(dual->a));
+}
+
+void	rrb(t_dualstack *dual)
+{
+	rev_rotate(&(dual->b));
+}
+
+void	rrr(t_dualstack *dual)
+{
+	rra(dual);
+	rrb(dual);
 }

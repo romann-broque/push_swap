@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   are_nb_sorted.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 12:19:11 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 23:25:04 by rbroque          ###   ########.fr       */
+/*   Created: 2023/01/29 23:05:05 by rbroque           #+#    #+#             */
+/*   Updated: 2023/01/29 23:18:03 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "run_tests.h"
+#include "push_swap.h"
 
-int	main(void)
+bool	are_nb_sorted(t_list *n1, t_list *n2)
 {
-	static int	(*tester[])(void) = {
-		swap_test,
-		push_test,
-		rotate_test,
-		rev_rotate_test,
-		is_stack_sorted_test,
-		are_nb_sorted_test,
-		NULL
-	};
-	int			ret_val;
-	size_t		i;
-
-	ret_val = EXIT_SUCCESS;
-	i = 0;
-	display_title(TEST_TITLE);
-	while (tester[i] != NULL)
-	{
-		if (tester[i]() == EXIT_FAILURE)
-			ret_val = EXIT_FAILURE;
-		++i;
-	}
-	return (ret_val);
+	return (n1 != NULL && n2 != NULL && (*((int *)n1->content) < *((int *)n2->content)));
 }

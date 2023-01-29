@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 22:00:27 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 23:09:19 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ typedef struct s_dualstack
 /////////////////
 
 // SORT //
+
+// is_nb_sorted.c
+
+bool	are_nb_sorted(t_list *n1, t_list *n2);
 
 // sort_dualstack.c
 
@@ -63,6 +67,9 @@ void	rr(t_dualstack *dual);
 // rev_rotate.c
 
 void	rev_rotate(t_list **stack);
+void	rra(t_dualstack *dual);
+void	rrb(t_dualstack *dual);
+void	rrr(t_dualstack *dual);
 
 // DUAL_STACK //
 

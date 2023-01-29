@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:18:47 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 22:18:53 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 23:25:17 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define ROTATE_TEST_TITLE "\n<====== ROTATE ======>\n\n"
 # define REV_ROTATE_TEST_TITLE "\n<====== REV_ROTATE ======>\n\n"
 # define IS_STACK_SORTED_TEST_TITLE "\n<====== IS_STACK_SORTED ======>\n\n"
+# define ARE_NB_SORTED_TEST_TITLE "\n<====== ARE_NB_SORTED ======>\n\n"
 
 /////////////////////////////////
 //// <----- FUNCTIONS -----> ////
@@ -54,5 +55,6 @@ int		push_test(void);
 int		rotate_test(void);
 int		rev_rotate_test(void);
 int		is_stack_sorted_test(void);
+int		are_nb_sorted_test(void);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:11:15 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/29 22:07:42 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/29 23:24:52 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS += push.test.c
 SRCS += rotate.test.c
 SRCS += rev_rotate.test.c
 SRCS += is_stack_sorted.test.c
+SRCS += are_nb_sorted.test.c
 
 vpath %.c $(PATH_SRCS)
 
