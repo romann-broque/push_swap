@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:11:15 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/29 00:49:03 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/29 16:56:51 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,7 +124,7 @@ all: $(NAME)
 	./$(NAME)
 
 $(NAME): $(LIB_TEST) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(MAIN_OBJS) -o $(NAME) -I $(INCLUDES) $(INCLUDES_LIB) $(LINKS) $(LIB_FDF) $(LIB) $(MINILIBX)
+	$(CC) $(CFLAGS) $(OBJS) $(MAIN_OBJS) -o $(NAME) -I $(INCLUDES) $(INCLUDES_LIB) $(LINKS) $(LIB_TEST) $(LIB)
 	$(ECHOC) $(GREEN) "--> $(NAME) COMPILED !"$(NC)"\n\n"
 
 $(LIB_TEST):
@@ -155,4 +155,4 @@ re: fclean
 	$(MAKE) -s
 
 .PHONY: all clean fclean re
-.SILENT: $(NAME) $(OBJS) $(LIB_FDF) clean fclean re
+.SILENT: $(NAME) $(OBJS) $(LIB_TEST) clean fclean re

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 01:08:24 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 01:33:55 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 14:35:46 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ t_list	*gen_list(int *numbers, const size_t count)
 		++i;
 	}
 	return (root);
+}
+
+int	*get_numbers(char **arg, const size_t count)
+{
+	size_t	i;
+	int		*numbers;
+
+	numbers = (int *)malloc((count) * sizeof(int));
+	if (numbers != NULL)
+	{
+		i = 0;
+		while (i < count)
+		{
+			numbers[i] = ft_atoi(arg[i]);
+			++i;
+		}
+	}
+	return (numbers);
 }
 
 void	ft_lstprint(const t_list *root)

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:18:47 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 00:41:45 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 17:06:33 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 ///////////
 
 # define TEST_TITLE "\n<====== TESTS ======>\n"
-# define OPERATION_TEST_TITLE "\n<====== OPERATIONS ======>\n"
+# define OPERATION_TEST_TITLE "\n<====== OPERATIONS ======>\n\n"
 
 /////////////////////////////////
 //// <----- FUNCTIONS -----> ////
@@ -38,6 +38,7 @@
 
 /// UTILS ///
 
+int		is_lst_expected(t_list *lst, int out_nb[], const size_t size);
 int		check_result(const size_t test_index, const int curr_res, const int exp_res);
 int		test_sequence(int (*tests[])(const size_t));
 void	display_title(const char *title);

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 01:28:32 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/15 17:42:36 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/29 17:06:11 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,23 @@ int	test_sequence(int (*tests[])(const size_t))
 	}
 	return (ret_val);
 }
+
+int	is_lst_expected(t_list *lst, int out_nb[], const size_t size)
+{
+	size_t	i;
+	int		ret_val = KO;
+
+	i = 0;
+	while (lst != NULL && *((int *)(lst->content)) == out_nb[i])
+	{
+		lst = lst->next;
+		++i;
+	}
+	if (i == size)
+		ret_val = OK;
+	return (ret_val);
+}
+
 
 void	display_title(const char *title)
 {
