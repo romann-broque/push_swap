@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/30 16:12:18 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/30 19:33:28 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ typedef struct s_dualstack
 	t_list	*a;
 	t_list	*b;
 }				t_dualstack;
+
+typedef struct s_tree
+{
+	int				content;
+	struct s_tree	*left;
+	struct s_tree	*right;
+}				t_tree;
 
 //////////////////
 /// FUNCTIONS ///
@@ -43,6 +50,13 @@ void	sort_dualstack(t_dualstack *dual);
 // sort_stack.c
 
 void	sort_stack(t_list *stack_a);
+
+// BIN_TREE //
+
+// create_tree.c
+
+t_tree	*create_tree(t_list *stack);
+void	display_tree(t_tree *root);
 
 // OPERATIONS //
 
@@ -80,8 +94,6 @@ void	rrr(t_dualstack *dual);
 void	print_dualstack(t_dualstack *dual);
 
 // STACK //
-
-// LIST //
 
 // list_utils.c
 
