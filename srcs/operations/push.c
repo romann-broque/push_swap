@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 17:14:26 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 22:29:28 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/30 21:34:54 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ void	push(t_list **stack_src, t_list **stack_dest)
 
 void	pa(t_dualstack *dual)
 {
+	ft_printf("pa\n");
 	push(&(dual->b), &(dual->a));
 }
 
 void	pb(t_dualstack *dual)
 {
+	ft_printf("pb\n");
 	push(&(dual->a), &(dual->b));
 }

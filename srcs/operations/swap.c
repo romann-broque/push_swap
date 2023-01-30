@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:18:54 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 17:59:57 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/30 21:36:28 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,19 @@ void	swap(t_list *stack)
 
 void	sa(t_dualstack	*dual)
 {
+	ft_printf("sa\n");
 	swap(dual->a);
 }
 
 void	sb(t_dualstack	*dual)
 {
+	ft_printf("sb\n");
 	swap(dual->b);
 }
 
 void	ss(t_dualstack	*dual)
 {
-	sa(dual);
-	sb(dual);
+	ft_printf("ss\n");
+	swap(dual->a);
+	swap(dual->b);
 }
