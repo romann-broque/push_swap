@@ -6,34 +6,30 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 17:49:34 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 17:58:18 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 22:38:38 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void	print_stack(t_list *stack)
+{
+	t_stack	*curr_stack;
+
+	while (stack != NULL)
+	{
+		curr_stack = stack->content;
+		printf("%d (%zu)\n", curr_stack->nb, curr_stack->index);
+		stack = stack->next;
+	}
+}
+
 void	print_dualstack(t_dualstack *dual)
 {
-	t_list	*a_cpy;
-	t_list	*b_cpy;
-
-	a_cpy = dual->a;
-	b_cpy = dual->b;
-	while (a_cpy || b_cpy)
-	{
-		if (a_cpy != NULL)
-		{
-			ft_printf("%d", *(int *)(a_cpy->content));
-			a_cpy = a_cpy->next;
-		}
-		ft_printf("      ");
-		if (b_cpy != NULL)
-		{
-			ft_printf("%d", *(int *)(b_cpy->content));
-			b_cpy = b_cpy->next;
-		}
-		ft_printf("\n");
-	}
-	ft_printf("a      b\n");
-	ft_printf("--------\n");
+	print_stack(dual->a);
+	printf("a\n");
+	printf("<->\n");
+	print_stack(dual->b);
+	printf("b\n");
+	printf("-------------------------\n");
 }

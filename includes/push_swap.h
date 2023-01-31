@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 18:18:08 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 22:40:47 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,15 +111,15 @@ void	fact_instructions(t_list *parent);
 
 // dualstack_utils.c
 
-void	init_dualstack(t_dualstack *dual, int *numbers, const size_t size);
+void	init_dualstack(t_dualstack *dual, t_stack *numbers, const size_t size);
 void	free_dualstack(t_dualstack *dual);
 
 // STACK //
 
 // gen_list.c
 
-int		*get_numbers(char **arg, const size_t count);
-t_list	*gen_list(int *numbers, const size_t count);
+t_stack	*get_numbers(char **arg, const size_t count);
+t_list	*gen_list(t_stack *numbers, const size_t count);
 
 // list_utils.c
 
@@ -127,8 +127,12 @@ void	ft_lstremove(t_list **head, void (*free_fct)(void *));
 void	ft_contadd_back(t_list **lst, void *content);
 void	ft_lstprint(const t_list *root);
 
+// set_index_stack.c
+
+void	set_index_stack(t_tree *root, t_list *stack);
+
 // stack_utils.c
 
-int	get_nb_index(t_list *stack, const int nb);
+int		get_nb_index(t_list *stack, const int nb);
 
 #endif
