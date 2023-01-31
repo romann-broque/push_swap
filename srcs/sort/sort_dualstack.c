@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:01:08 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 04:54:44 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 13:34:36 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,27 @@ static int	get_nb_index(t_list *stack, const int nb)
 	return (index);
 }
 
-static void	infix_sort(t_dualstack *dual, t_tree *root)
+static void	stack_op(t_dualstack *dual, int	content)
 {
+	const int	index = get_nb_index(dual->a, content);
 	const int	half_size = ft_lstsize(dual->a) / 2;
-	const int	index = get_nb_index(dual->a, root->content);
 
-	if (root->left != NULL)
-		infix_sort(dual, root->left);
-	while (*((int *)(dual->a->content)) != root->content)
+	while (*((int *)(dual->a->content)) != content)
 	{
-		if (index < half_size)
+		if (index <= half_size)
 			ra(dual);
 		else
 			rra(dual);
 	}
 	pb(dual);
+}
+
+static void	infix_sort(t_dualstack *dual, t_tree *root)
+{
+
+	if (root->left != NULL)
+		infix_sort(dual, root->left);
+	stack_op(dual, root->content);
 	if (root->right != NULL)
 		infix_sort(dual, root->right);
 }
