@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 14:27:27 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 18:18:08 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 //////////////////
 /// STRUCTURES ///
 //////////////////
+
+typedef struct s_stack
+{
+	int		nb;
+	size_t	index;
+}				t_stack;
 
 typedef struct s_dualstack
 {
