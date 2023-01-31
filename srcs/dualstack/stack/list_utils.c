@@ -6,45 +6,30 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 01:08:24 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 03:23:22 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 13:40:58 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*gen_list(int *numbers, const size_t count)
+void	ft_lstremove(t_list **head, void (*free_fct)(void *))
 {
-	t_list	*root;
-	t_list	*curr;
-	size_t	i;
+	t_list	*tmp;
 
-	root = NULL;
-	i = 0;
-	while (i < count)
+	if (*head != NULL)
 	{
-		curr = ft_lstnew(numbers + i);
-		ft_lstadd_back(&root, curr);
-		++i;
-	}
-	return (root);
-}
-
-int	*get_numbers(char **arg, const size_t count)
-{
-	size_t	i;
-	int		*numbers;
-
-	numbers = (int *)malloc((count) * sizeof(int));
-	if (numbers != NULL)
-	{
-		i = 0;
-		while (i < count)
+		if ((*head)->next != NULL)
 		{
-			numbers[i] = ft_atoi(arg[i]);
-			++i;
+			tmp = (*head)->next->next;
+			ft_lstdelone((*head)->next, free_fct);
+			(*head)->next = tmp;
+		}
+		else
+		{
+			ft_lstdelone(*head, free_fct);
+			*head = NULL;
 		}
 	}
-	return (numbers);
 }
 
 void	ft_contadd_back(t_list **lst, void *content)

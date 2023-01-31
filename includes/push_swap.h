@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 04:48:28 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 13:50:56 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	sort_stack(t_list *stack_a);
 
 // BIN_TREE //
 
-// create_tree.c
+// tree_utils.c
 
 t_tree	*create_tree(t_list *stack);
 void	display_tree(t_tree *root);
@@ -105,11 +105,19 @@ void	fact_instructions(t_list *parent);
 
 // STACK //
 
-// list_utils.c
+// gen_list.c
 
-void	ft_contadd_back(t_list **lst, void *content);
 int		*get_numbers(char **arg, const size_t count);
 t_list	*gen_list(int *numbers, const size_t count);
+
+// list_utils.c
+
+void	ft_lstremove(t_list **head, void (*free_fct)(void *));
+void	ft_contadd_back(t_list **lst, void *content);
 void	ft_lstprint(const t_list *root);
+
+// stack_utils.c
+
+int	get_nb_index(t_list *stack, const int nb);
 
 #endif

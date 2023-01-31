@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/31 02:17:56 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/31 13:51:17 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,9 @@ SRCS += fact_instructions.c
 
 # srcs/dualstack/stack/
 
+SRCS += gen_list.c
 SRCS += list_utils.c
+SRCS += stack_utils.c
 
 # srcs/operations/
 
@@ -63,7 +65,7 @@ SRCS += sort_stack.c
 
 # srcs/sort/bin_tree
 
-SRCS += create_tree.c
+SRCS += tree_utils.c
 
 vpath %.c $(PATH_SRCS)
 
