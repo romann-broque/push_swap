@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/30 19:30:59 by rbroque          ###   ########.fr        #
+#    Updated: 2023/01/31 02:17:56 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,8 @@ SRCS += push_swap.c
 # srcs/dualstack/
 
 SRCS += print_dualstack.c
+SRCS += print_instructions.c
+SRCS += fact_instructions.c
 
 # srcs/dualstack/stack/
 
@@ -55,6 +57,7 @@ SRCS += rev_rotate.c
 
 # srcs/sort/
 
+SRCS += is_sorted.c
 SRCS += sort_dualstack.c
 SRCS += sort_stack.c
 

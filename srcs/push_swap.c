@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:28:07 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/29 18:02:49 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 03:39:34 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	push_swap(char **arg, const size_t count)
 	numbers = get_numbers(arg, count);
 	root = gen_list(numbers, count);
 	sort_stack(root);
-	ft_lstclear(&root, NULL);
 	free(numbers);
 }
 

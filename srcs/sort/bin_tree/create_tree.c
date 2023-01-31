@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 19:19:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/30 19:34:03 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 04:50:11 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ t_tree	*create_tree(t_list *stack)
 		stack = stack->next;
 	}
 	return (tree);
+}
+
+void	clear_tree(t_tree *tree)
+{
+	if (tree != NULL)
+	{
+		clear_tree(tree->left);
+		free(tree);
+		clear_tree(tree->right);
+	}
 }
 
 void	display_tree(t_tree *root)

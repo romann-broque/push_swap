@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*   print_instructions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 18:01:38 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 03:31:15 by rbroque          ###   ########.fr       */
+/*   Created: 2023/01/31 01:35:01 by rbroque           #+#    #+#             */
+/*   Updated: 2023/01/31 04:28:22 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_stack(t_list *stack_a)
+void	print_instructions(t_list *instructions)
 {
-	t_dualstack	dual;
-
-	dual.a = stack_a;
-	dual.b = NULL;
-	dual.instructions = NULL;
-	sort_dualstack(&dual);
-	ft_lstclear(&(dual.a), NULL);
-	ft_lstclear(&(dual.b), NULL);
-	ft_lstclear(&(dual.instructions), NULL);
+	while (instructions != NULL)
+	{
+		ft_printf("%s\n", instructions->content);
+		instructions = instructions->next;
+	}
 }

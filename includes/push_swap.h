@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/30 19:33:28 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 04:48:28 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_dualstack
 {
 	t_list	*a;
 	t_list	*b;
+	t_list	*instructions;
 }				t_dualstack;
 
 typedef struct s_tree
@@ -57,6 +58,7 @@ void	sort_stack(t_list *stack_a);
 
 t_tree	*create_tree(t_list *stack);
 void	display_tree(t_tree *root);
+void	clear_tree(t_tree *tree);
 
 // OPERATIONS //
 
@@ -93,10 +95,19 @@ void	rrr(t_dualstack *dual);
 
 void	print_dualstack(t_dualstack *dual);
 
+// print_instructions.c
+
+void	print_instructions(t_list *instructions);
+
+// fact_instructions.c
+
+void	fact_instructions(t_list *parent);
+
 // STACK //
 
 // list_utils.c
 
+void	ft_contadd_back(t_list **lst, void *content);
 int		*get_numbers(char **arg, const size_t count);
 t_list	*gen_list(int *numbers, const size_t count);
 void	ft_lstprint(const t_list *root);

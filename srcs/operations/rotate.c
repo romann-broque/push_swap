@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:05:09 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/30 21:35:48 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 01:31:04 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ void	rotate(t_list *stack)
 
 void	ra(t_dualstack *dual)
 {
-	ft_printf("ra\n");
 	rotate(dual->a);
+	ft_contadd_back(&(dual->instructions), "ra");
 }
 
 void	rb(t_dualstack *dual)
 {
-	ft_printf("rb\n");
 	rotate(dual->b);
+	ft_contadd_back(&(dual->instructions), "rb");
 }
 
 void	rr(t_dualstack *dual)
 {
-	ft_printf("rr\n");
 	rotate(dual->a);
 	rotate(dual->b);
+	ft_contadd_back(&(dual->instructions), "rr");
 }
