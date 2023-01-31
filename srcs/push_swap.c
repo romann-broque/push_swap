@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:28:07 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 03:39:34 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/01/31 14:28:05 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	push_swap(char **arg, const size_t count)
 {
-	t_list	*root;
-	int		*numbers;
+	t_dualstack	dual;
+	int			*numbers;
 
 	numbers = get_numbers(arg, count);
-	root = gen_list(numbers, count);
-	sort_stack(root);
+	init_dualstack(&dual, numbers, count);
+	sort_dualstack(&dual);
+	free_dualstack(&dual);
 	free(numbers);
 }
 

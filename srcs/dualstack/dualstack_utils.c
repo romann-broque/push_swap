@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*   dualstack_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 18:01:38 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 03:31:15 by rbroque          ###   ########.fr       */
+/*   Created: 2023/01/31 14:23:46 by rbroque           #+#    #+#             */
+/*   Updated: 2023/01/31 14:27:19 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_stack(t_list *stack_a)
+void	init_dualstack(t_dualstack *dual, int *numbers, const size_t count)
 {
-	t_dualstack	dual;
+	dual->a = gen_list(numbers, count);
+	dual->b = NULL;
+	dual->instructions = NULL;
+}
 
-	dual.a = stack_a;
-	dual.b = NULL;
-	dual.instructions = NULL;
-	sort_dualstack(&dual);
-	ft_lstclear(&(dual.a), NULL);
-	ft_lstclear(&(dual.b), NULL);
-	ft_lstclear(&(dual.instructions), NULL);
+void	free_dualstack(t_dualstack *dual)
+{
+	ft_lstclear(&(dual->a), NULL);
+	ft_lstclear(&(dual->b), NULL);
+	ft_lstclear(&(dual->instructions), NULL);
 }
