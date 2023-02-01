@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/31 22:41:05 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/01 15:01:32 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ DEFAULT_ARG = 1 0 3 4
 
 PATH_SRCS += srcs/
 PATH_SRCS += srcs/dualstack/
+PATH_SRCS += srcs/dualstack/list/
 PATH_SRCS += srcs/dualstack/stack/
 PATH_SRCS += srcs/operations/
 PATH_SRCS += srcs/sort/
@@ -45,10 +46,13 @@ SRCS += print_instructions.c
 SRCS += fact_instructions.c
 SRCS += dualstack_utils.c
 
-# srcs/dualstack/stack/
+# srcs/dualstack/list/
 
 SRCS += gen_list.c
 SRCS += list_utils.c
+
+# srcs/dualstack/stack/
+
 SRCS += set_index_stack.c
 SRCS += stack_utils.c
 

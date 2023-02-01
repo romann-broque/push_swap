@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/01 01:11:22 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/01 15:02:01 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	fact_instructions(t_list *parent);
 void	init_dualstack(t_dualstack *dual, t_stack *numbers, const size_t size);
 void	free_dualstack(t_dualstack *dual);
 
-// STACK //
+// LIST //
 
 // gen_list.c
 
@@ -126,6 +126,8 @@ t_list	*gen_list(t_stack *numbers, const size_t count);
 void	ft_lstremove(t_list **head, void (*free_fct)(void *));
 void	ft_contadd_back(t_list **lst, void *content);
 void	ft_lstprint(const t_list *root);
+
+// STACK //
 
 // set_index_stack.c
 
