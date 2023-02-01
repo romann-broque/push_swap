@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:11:15 by rbroque           #+#    #+#              #
-#    Updated: 2023/01/30 19:18:19 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/01 16:52:43 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,11 @@ PATH_SRCS += srcs/
 
 SRCS += main.c
 SRCS += test_utils.c
-SRCS += swap.test.c
-SRCS += push.test.c
-SRCS += rotate.test.c
-SRCS += rev_rotate.test.c
+# SRCS += swap.test.c
+# SRCS += push.test.c
+# SRCS += rotate.test.c
+# SRCS += rev_rotate.test.c
+SRCS += is_stack_sorted.test.c
 
 vpath %.c $(PATH_SRCS)
 
@@ -123,7 +124,7 @@ endif
 #### RULES ####
 ###############
 
-all: $(NAME)
+all: $(NAME) $(FDF_OBJS)
 	./$(NAME)
 
 $(NAME): $(LIB_TEST) $(OBJS)

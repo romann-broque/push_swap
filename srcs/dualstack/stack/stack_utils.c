@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:23 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/01 01:11:06 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/01 15:25:20 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ int	get_nb_index(t_list *stack, const int nb)
 	return (index);
 }
 
+int	get_disp(const t_stack *element1, const t_stack *element2)
+{
+	if (element1 != NULL && element2 != NULL)
+		return (element2->index - element1->index);
+	return (0);
+}
+
 float	get_average_disp(t_list *stack)
 {
 	const size_t	size = ft_lstsize(stack);
@@ -36,8 +43,7 @@ float	get_average_disp(t_list *stack)
 	while (stack != NULL)
 	{
 		if (stack->next != NULL)
-			sum += get_abs(((t_stack *)(stack->content))->index
-					- ((t_stack *)(stack->next->content))->index);
+			sum += get_abs(get_disp((t_stack *)(stack->content), (t_stack *)(stack->next->content)));
 		stack = stack->next;
 	}
 	return ((float)(sum + 1) / (float)size);

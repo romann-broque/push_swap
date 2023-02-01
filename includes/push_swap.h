@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/01 15:02:01 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/01 15:11:32 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ void	set_index_stack(t_tree *root, t_list *stack);
 // stack_utils.c
 
 int		get_nb_index(t_list *stack, const int nb);
+int		get_disp(const t_stack *element1, const t_stack *element2);
 float	get_average_disp(t_list *stack);
 
 #endif
