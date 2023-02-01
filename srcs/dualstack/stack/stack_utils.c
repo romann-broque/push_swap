@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:23 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 22:41:40 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/01 01:11:06 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,22 @@ int	get_nb_index(t_list *stack, const int nb)
 		++index;
 	}
 	return (index);
+}
+
+float	get_average_disp(t_list *stack)
+{
+	const size_t	size = ft_lstsize(stack);
+	size_t			sum;
+
+	if (size == 0)
+		return (0);
+	sum = 0;
+	while (stack != NULL)
+	{
+		if (stack->next != NULL)
+			sum += get_abs(((t_stack *)(stack->content))->index
+					- ((t_stack *)(stack->next->content))->index);
+		stack = stack->next;
+	}
+	return ((float)(sum + 1) / (float)size);
 }
