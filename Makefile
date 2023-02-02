@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/02 18:42:59 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/02 18:50:38 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ SRCS += list_utils.c
 
 # srcs/dualstack/stack/
 
-SRCS += set_index_stack.c
+SRCS += set_rank_stack.c
 SRCS += stack_utils.c
 
 # srcs/operations/

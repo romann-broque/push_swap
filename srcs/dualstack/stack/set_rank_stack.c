@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_index_stack.c                                  :+:      :+:    :+:   */
+/*   set_rank_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 22:40:02 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 22:40:26 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/02 18:51:15 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,25 @@ static t_stack	*find_stack(t_list *lst, const int nb)
 	return (NULL);
 }
 
-static void	set_index(t_tree *root, t_list *stack, size_t *index)
+static void	set_rank(t_tree *root, t_list *stack, size_t *rank)
 {
 	t_stack	*curr_stack;
 
 	if (root != NULL)
 	{
 		curr_stack = stack->content;
-		set_index(root->left, stack, index);
-		++(*index);
+		set_rank(root->left, stack, rank);
+		++(*rank);
 		curr_stack = find_stack(stack, root->content);
-		curr_stack->index = *index;
-		set_index(root->right, stack, index);
+		curr_stack->rank = *rank;
+		set_rank(root->right, stack, rank);
 	}
 }
 
-void	set_index_stack(t_tree *root, t_list *stack)
+void	set_rank_stack(t_tree *root, t_list *stack)
 {
-	size_t	init_index;
+	size_t	init_rank;
 
-	init_index = 0;
-	set_index(root, stack, &init_index);
+	init_rank = 0;
+	set_rank(root, stack, &init_rank);
 }

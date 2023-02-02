@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 17:49:34 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 22:38:38 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/02 18:47:44 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	print_stack(t_list *stack)
 	while (stack != NULL)
 	{
 		curr_stack = stack->content;
-		printf("%d (%zu)\n", curr_stack->nb, curr_stack->index);
+		printf("%d (%zu)\n", curr_stack->nb, curr_stack->rank);
 		stack = stack->next;
 	}
 }

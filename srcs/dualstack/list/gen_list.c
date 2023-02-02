@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:40:10 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 18:24:55 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/02 18:47:59 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_stack	*get_numbers(char **arg, const size_t count)
 		while (i < count)
 		{
 			numbers[i].nb = ft_atoi(arg[i]);
-			numbers[i].index = 0;
+			numbers[i].rank = 0;
 			++i;
 		}
 	}

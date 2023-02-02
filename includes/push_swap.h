@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/02 18:44:15 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/02 18:50:14 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_stack
 {
 	int		nb;
-	size_t	index;
+	size_t	rank;
 }				t_stack;
 
 typedef struct s_dualstack
@@ -133,9 +133,9 @@ void	ft_lstprint(const t_list *root);
 
 // STACK //
 
-// set_index_stack.c
+// set_rank_stack.c
 
-void	set_index_stack(t_tree *root, t_list *stack);
+void	set_rank_stack(t_tree *root, t_list *stack);
 
 // stack_utils.c
 

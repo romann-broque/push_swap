@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:50:20 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/02 18:40:59 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/02 18:52:18 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static long	get_next_rotate1(t_list *stack)
 	return (-(rotate - (size / 2 + 1)));
 }
 
-long	get_next_rotate2(t_list *stack, const size_t ref_index)
+long	get_next_rotate2(t_list *stack, const size_t ref_rank)
 {
 	const size_t	size = ft_lstsize(stack);
 	long			rotate;
@@ -51,7 +51,7 @@ long	get_next_rotate2(t_list *stack, const size_t ref_index)
 	i = 0;
 	while (stack != NULL)
 	{
-		if ((long)(((t_stack *)(stack->content))->index) - (long)ref_index == 1)
+		if ((long)(((t_stack *)(stack->content))->rank) - (long)ref_rank == 1)
 			rotate = i;
 		++i;
 		stack = stack->next;
@@ -89,7 +89,7 @@ static void	rank_op(t_dualstack *dual)
 	if (get_abs(rotate_count1) > 0)
 	{
 		pb(dual);
-		rotate_count2 = get_next_rotate2(dual->a, ((t_stack *)(dual->b->content))->index);
+		rotate_count2 = get_next_rotate2(dual->a, ((t_stack *)(dual->b->content))->rank);
 		put_mindisp_top(dual, rotate_count2);
 		pa(dual);
 	}

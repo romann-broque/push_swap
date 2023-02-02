@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:23 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/01 15:25:20 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/02 18:49:55 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	get_nb_index(t_list *stack, const int nb)
 int	get_disp(const t_stack *element1, const t_stack *element2)
 {
 	if (element1 != NULL && element2 != NULL)
-		return (element2->index - element1->index);
+		return (element2->rank - element1->rank);
 	return (0);
 }
 
