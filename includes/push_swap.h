@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/01 15:11:32 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/02 18:44:15 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,13 @@ bool	is_stack_sorted(t_list *stack);
 
 void	sort_dualstack(t_dualstack *dual);
 
-// sort_stack.c
+// rank_sort.c
 
-void	sort_stack(t_list *stack_a);
+void	rank_sort(t_dualstack *dual);
+
+// tree_sort.c
+
+void	tree_sort(t_dualstack *dual, t_tree *root);
 
 // BIN_TREE //
 
