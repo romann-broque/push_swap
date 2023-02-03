@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/03 16:07:55 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/03 16:16:57 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static size_t	get_index_from_nb(t_list *stack, const int nb)
 	size_t	index;
 
 	index = 0;
-	while (((t_stack *)(stack->content))->nb != nb)
+	while (stack != NULL && ((t_stack *)(stack->content))->nb != nb)
 	{
 		++index;
 		stack = stack->next;
@@ -68,6 +68,11 @@ static size_t	get_next_index_from_nb(t_list *stack, const int nb)
 
 //////////////////
 
+static bool	isin_stack(t_list *stack, const int nb)
+{
+	return (get_index_from_nb(stack, nb) < ft_lstsize(stack));
+}
+
 static void	push_index_to_b(t_dualstack *dual, const size_t index)
 {
 	const int		nb = get_nb_from_index(dual->a, index);
@@ -81,21 +86,26 @@ static void	push_index_to_b(t_dualstack *dual, const size_t index)
 			ra(dual);
 		else
 			rra(dual);
-		print_dualstack(dual);
+		//print_dualstack(dual);
 		curr_stack = (dual->a->content);
 	}
 	pb(dual);
-	print_dualstack(dual);
+	//print_dualstack(dual);
 }
 
 static void	stack_op(t_dualstack *dual, const int content)
 {
 	const size_t	index = get_nb_index(dual->a, content);
 	const size_t	next_index = get_next_index_from_nb(dual->a, content);
+	size_t			curr_index;
 
-	printf("nb -> %d / index -> %zu / next_index -> %zu\n", content, index, next_index);
-	print_dualstack(dual);
-	push_index_to_b(dual, index);
+	//print_dualstack(dual);
+	if (next_index < index)
+		push_index_to_b(dual, next_index);
+	curr_index = get_nb_index(dual->a, content);
+	push_index_to_b(dual, curr_index);
+	if (next_index < index)
+		sb(dual);
 }
 
 static void	infix_sort(t_dualstack *dual, t_tree *root)
@@ -104,7 +114,8 @@ static void	infix_sort(t_dualstack *dual, t_tree *root)
 	{
 		if (root->left != NULL)
 			infix_sort(dual, root->left);
-		stack_op(dual, root->content);
+		if (isin_stack(dual->a, root->content) == true)
+			stack_op(dual, root->content);
 		if (root->right != NULL)
 			infix_sort(dual, root->right);
 	}
@@ -115,6 +126,6 @@ void	tree_sort(t_dualstack *dual, t_tree *root)
 	infix_sort(dual, root);
 	while (dual->b != NULL)
 		pa(dual);
-	print_dualstack(dual);
+	//print_dualstack(dual);
 	fact_instructions(dual->instructions);
 }
