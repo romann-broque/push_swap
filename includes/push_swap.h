@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/03 16:25:04 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/03 16:55:25 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	print_instructions(t_list *instructions);
 
 // fact_instructions.c
 
-void	fact_instructions(t_list *parent);
+void	fact_instructions(t_list **parent);
 
 // dualstack_utils.c
 
@@ -140,6 +140,7 @@ void	set_rank_stack(t_tree *root, t_list *stack);
 // stack_utils.c
 
 int		get_disp(const t_stack *element1, const t_stack *element2);
+bool	isin_stack(t_list *stack, const int nb);
 float	get_average_disp(t_list *stack);
 
 // get_data.c

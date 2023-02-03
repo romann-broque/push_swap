@@ -6,18 +6,20 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/03 16:26:47 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/03 17:12:59 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	isin_stack(t_list *stack, const int nb)
+static bool	is_nextbefore(t_dualstack *dual, const size_t index, const size_t next_index)
 {
-	return (get_index_from_nb(stack, nb) < ft_lstsize(stack));
+	const size_t	half_size = ft_lstsize(dual->a);
+
+	return (get_abs(next_index - half_size) > get_abs(index - half_size));
 }
 
-static void	push_index_to_b(t_dualstack *dual, const size_t index)
+static void	put_top_a(t_dualstack *dual, const size_t index)
 {
 	const int		nb = get_nb_from_index(dual->a, index);
 	const size_t	half_size = ft_lstsize(dual->a) / 2;
@@ -30,25 +32,32 @@ static void	push_index_to_b(t_dualstack *dual, const size_t index)
 			ra(dual);
 		else
 			rra(dual);
-		//print_dualstack(dual);
+		print_dualstack(dual);
 		curr_stack = (dual->a->content);
 	}
+}
+
+static void	push_index_to_b(t_dualstack *dual, const size_t index)
+{
+	put_top_a(dual, index);
 	pb(dual);
-	//print_dualstack(dual);
+	print_dualstack(dual);
 }
 
 static void	stack_op(t_dualstack *dual, const int content)
 {
+	bool			is_nextbefore_val;
 	const size_t	index = get_index_from_nb(dual->a, content);
 	const size_t	next_index = get_next_index_from_nb(dual->a, content);
 	size_t			curr_index;
 
-	//print_dualstack(dual);
-	if (next_index < index)
+	print_dualstack(dual);
+	is_nextbefore_val = is_nextbefore(dual, index, next_index);
+	if (is_nextbefore_val == true)
 		push_index_to_b(dual, next_index);
 	curr_index = get_index_from_nb(dual->a, content);
 	push_index_to_b(dual, curr_index);
-	if (next_index < index)
+	if (is_nextbefore_val)
 		sb(dual);
 }
 
@@ -70,6 +79,6 @@ void	tree_sort(t_dualstack *dual, t_tree *root)
 	infix_sort(dual, root);
 	while (dual->b != NULL)
 		pa(dual);
-	//print_dualstack(dual);
-	fact_instructions(dual->instructions);
+	print_dualstack(dual);
+	fact_instructions(&(dual->instructions));
 }
