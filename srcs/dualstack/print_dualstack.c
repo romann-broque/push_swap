@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 17:49:34 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/02 18:47:44 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/03 02:56:38 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	print_stack(t_list *stack)
 	while (stack != NULL)
 	{
 		curr_stack = stack->content;
-		printf("%d (%zu)\n", curr_stack->nb, curr_stack->rank);
+		dprintf(STDERR_FILENO, "%d (%zu)\n", curr_stack->nb, curr_stack->rank);
 		stack = stack->next;
 	}
 }
@@ -27,9 +27,7 @@ static void	print_stack(t_list *stack)
 void	print_dualstack(t_dualstack *dual)
 {
 	print_stack(dual->a);
-	printf("a\n");
-	printf("<->\n");
+	dprintf(STDERR_FILENO, "a\n<->\n");
 	print_stack(dual->b);
-	printf("b\n");
-	printf("-------------------------\n");
+	dprintf(STDERR_FILENO, "b\n-------------------------\n");
 }

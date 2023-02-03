@@ -6,18 +6,18 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:23 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/02 18:49:55 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/03 14:47:17 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_nb_index(t_list *stack, const int nb)
+size_t	get_nb_index(t_list *stack, const int nb)
 {
-	int	index;
+	size_t	index;
 
 	index = 0;
-	while (stack != NULL && *((int *)(stack->content)) != nb)
+	while (stack != NULL && ((t_stack *)(stack->content))->nb != nb)
 	{
 		stack = stack->next;
 		++index;

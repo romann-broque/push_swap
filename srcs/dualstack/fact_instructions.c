@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 13:39:23 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/03 02:09:29 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	fact_instructions(t_list *parent)
 		if (ft_strcmp(parent->next->content, "pb") == 0 && ft_strcmp(parent->next->next->content, "pa") == 0)
 		{
 			ft_lstremove(&parent, NULL);
-			ft_lstremove(&(parent->next), NULL);
+			ft_lstremove(&(parent), NULL);
 			break ;
 		}
 		else
