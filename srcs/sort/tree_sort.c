@@ -6,67 +6,11 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/03 16:16:57 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/03 16:26:47 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// get_data_from_other_data //
-
-static int	get_nb_from_index(t_list *stack, const size_t index)
-{
-	size_t	i;
-
-	i = 0;
-	while (stack != NULL && i < index)
-	{
-		++i;
-		stack = stack->next;
-	}
-	return (((t_stack *)(stack->content))->nb);
-}
-
-static size_t	get_rank_from_nb(t_list *stack, const int nb)
-{
-	while (((t_stack *)(stack->content))->nb != nb)
-		stack = stack->next;
-	return (((t_stack *)(stack->content))->rank);
-}
-
-static int	get_nb_from_rank(t_list *stack, const size_t rank)
-{
-	while (((t_stack *)(stack->content))->rank != rank)
-		stack = stack->next;
-	return (((t_stack *)(stack->content))->nb);
-}
-
-static size_t	get_index_from_nb(t_list *stack, const int nb)
-{
-	size_t	index;
-
-	index = 0;
-	while (stack != NULL && ((t_stack *)(stack->content))->nb != nb)
-	{
-		++index;
-		stack = stack->next;
-	}
-	return (index);
-}
-
-static size_t	get_next_index_from_nb(t_list *stack, const int nb)
-{
-	size_t	rank;
-	size_t	next_nb;
-
-	if (stack == NULL || stack->next == NULL)
-		return (0);
-	rank = get_rank_from_nb(stack, nb);
-	next_nb = get_nb_from_rank(stack, rank + 1);
-	return (get_index_from_nb(stack, next_nb));
-}
-
-//////////////////
 
 static bool	isin_stack(t_list *stack, const int nb)
 {
@@ -95,14 +39,14 @@ static void	push_index_to_b(t_dualstack *dual, const size_t index)
 
 static void	stack_op(t_dualstack *dual, const int content)
 {
-	const size_t	index = get_nb_index(dual->a, content);
+	const size_t	index = get_index_from_nb(dual->a, content);
 	const size_t	next_index = get_next_index_from_nb(dual->a, content);
 	size_t			curr_index;
 
 	//print_dualstack(dual);
 	if (next_index < index)
 		push_index_to_b(dual, next_index);
-	curr_index = get_nb_index(dual->a, content);
+	curr_index = get_index_from_nb(dual->a, content);
 	push_index_to_b(dual, curr_index);
 	if (next_index < index)
 		sb(dual);

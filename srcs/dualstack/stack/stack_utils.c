@@ -6,24 +6,11 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:23 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/03 14:47:17 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/03 16:24:43 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-size_t	get_nb_index(t_list *stack, const int nb)
-{
-	size_t	index;
-
-	index = 0;
-	while (stack != NULL && ((t_stack *)(stack->content))->nb != nb)
-	{
-		stack = stack->next;
-		++index;
-	}
-	return (index);
-}
 
 int	get_disp(const t_stack *element1, const t_stack *element2)
 {
