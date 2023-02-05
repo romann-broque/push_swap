@@ -6,11 +6,30 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 01:08:24 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/05 14:47:11 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/05 16:26:50 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_lstinsert(t_list **head, void *content)
+{
+	t_list	*next;
+	t_list	*new;
+
+	new = ft_lstnew(content);
+	if (new != NULL)
+	{
+		if (*head == NULL)
+			*head = new;
+		else
+		{
+			next = (*head)->next;
+			(*head)->next = new;
+			new->next = next;
+		}
+	}
+}
 
 void	ft_lstremove(t_list **head, void (*free_fct)(void *))
 {

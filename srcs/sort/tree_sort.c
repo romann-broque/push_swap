@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/05 15:58:50 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/05 16:59:48 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	put_top_a(t_dualstack *dual, const size_t index)
 			ra(dual);
 		else
 			rra(dual);
-		print_dualstack(dual);
+//		print_dualstack(dual);
 		curr_stack = (dual->a->content);
 	}
 }
@@ -41,7 +41,7 @@ static void	push_index_to_b(t_dualstack *dual, const size_t index)
 {
 	put_top_a(dual, index);
 	pb(dual);
-	print_dualstack(dual);
+	//print_dualstack(dual);
 }
 
 static void	stack_op(t_dualstack *dual, const int content)
@@ -51,7 +51,7 @@ static void	stack_op(t_dualstack *dual, const int content)
 	const size_t	next_index = get_next_index_from_nb(dual->a, content);
 	size_t			curr_index;
 
-	print_dualstack(dual);
+	//print_dualstack(dual);
 	is_nextbefore_val = is_nextbefore(dual, index, next_index);
 	if (is_nextbefore_val == true)
 		push_index_to_b(dual, next_index);
