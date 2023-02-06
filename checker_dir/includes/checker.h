@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 18:24:09 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 14:50:24 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 15:21:18 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define CHECKER_H
 
 # include "push_swap.h"
-
-// parsing_nb.c
-
-bool	are_nb_valid(const char **numbers);
 
 // read_instructions.c
 

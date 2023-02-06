@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 14:33:09 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 15:19:24 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,9 @@ float	get_average_disp(t_list *stack);
 int		get_nb_from_index(t_list *stack, const size_t index);
 size_t	get_index_from_nb(t_list *stack, const int nb);
 size_t	get_next_index_from_nb(t_list *stack, const int nb);
+
+// PARSER //
+
+bool	are_nb_valid(const char **numbers);
 
 #endif

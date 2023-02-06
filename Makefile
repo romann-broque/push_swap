@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/06 14:51:26 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/06 15:22:12 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ PATH_SRCS += srcs/dualstack/
 PATH_SRCS += srcs/dualstack/list/
 PATH_SRCS += srcs/dualstack/stack/
 PATH_SRCS += srcs/operations/
+PATH_SRCS += srcs/parser/
 PATH_SRCS += srcs/sort/
 PATH_SRCS += srcs/sort/bin_tree/
 
@@ -76,6 +77,10 @@ SRCS += rank_sort.c
 
 SRCS += tree_utils.c
 
+# srcs/parser/
+
+SRCS += parsing_nb.c
+
 ### BONUS ###
 
 PATH_SRCS_BONUS += checker_dir/srcs
@@ -84,7 +89,6 @@ PATH_SRCS_BONUS += checker_dir/srcs/operations
 # checker_dir/srcs
 
 SRCS_BONUS += checker.c
-SRCS_BONUS += parsing_nb.c
 SRCS_BONUS += read_instructions.c
 
 # checker_dir/operations

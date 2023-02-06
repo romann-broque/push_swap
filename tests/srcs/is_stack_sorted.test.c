@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:48:34 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/01 16:57:12 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 15:01:59 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static int	is_stack_sorted_sub(char *arg, const size_t nb, const size_t size, in
 	t_tree		*tree;
 
 	split_arg = ft_split(arg, ' ');
-	stack = get_numbers(split_arg, size);
+	stack = get_numbers((const char **)split_arg, size);
 	lst = gen_list(stack, size);
 
 	tree = create_tree(lst);
-	set_index_stack(tree, lst);
+	set_rank_stack(tree, lst);
 	ret_val = !(is_stack_sorted(lst));
 	free_strs(split_arg);
 	ft_lstclear(&lst, NULL);
