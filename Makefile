@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/05 22:27:12 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/06 12:08:13 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,7 @@ PATH_SRCS_BONUS += checker_dir/srcs
 
 SRCS_BONUS += checker.c
 SRCS_BONUS += parsing_nb.c
+SRCS_BONUS += read_instructions.c
 
 ifeq (bonus, $(findstring bonus, $(MAKECMDGOALS)))
 	PATH_SRCS += $(PATH_SRCS_BONUS)
@@ -99,16 +100,15 @@ PATH_OBJS = objs
 OBJS_MAND = $(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
 OBJS_BONUS = $(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS_BONUS))
 OBJS += $(OBJS_MAND)
-ifeq (bonus, $(findstring bonus, $(MAKECMDGOALS)))
-	OBJS += $(OBJS_BONUS)
-endif
+OBJS += $(OBJS_BONUS)
 
 #############
 #### LIB ####
 #############
 
 LIB_FOLDER = libft/
-LIB = $(LIB_FOLDER)/libft.a
+LIBFT = $(LIB_FOLDER)/libft.a
+BONUS_LIB = libbonus.a
 
 ###################
 #### INCLUDES #####
@@ -190,27 +190,36 @@ endif
 #### RULES ####
 ###############
 
-all: $(LIB) $(NAME)
+all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS_MAND) -o $(NAME) $(INCLUDES) $(LINKS) $(LIB)
+$(NAME): $(OBJS_MAND)
+	$(CC) $(CFLAGS) $(OBJS_MAND) -o $(NAME) $(INCLUDES) $(LINKS) $(LIBFT)
 	$(ECHOC) $(GREEN) "--> $(NAME) COMPILED !"$(NC)"\n\n"
 
-$(LIB):
+$(LIBFT):
 	echo -e $(BLUE) "\n====> Building libft.a <===="$(NC)"\n"
 	$(MAKE) -sC $(LIB_FOLDER)
 	echo -e $(BLUE) "\n====> Building $(NAME) <===="$(NC)"\n"
 
-$(OBJS): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
+$(OBJS_MAND): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
 	$(ECHO) $(ORANGE) "Compiling $<"
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
-$(NAME_BONUS): $(LIB) $(NAME)
-	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS) $(INCLUDES) $(LINKS) $(LIB)
+$(NAME_BONUS): $(BONUS_LIB) $(OBJS_BONUS)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS) $(INCLUDES) $(LINKS) $(LIBFT) $(BONUS_LIB)
 	$(ECHOC) $(GREEN) "--> $(NAME_BONUS) COMPILED !"$(NC)"\n\n"
 
-bonus: $(NAME_BONUS)
+$(OBJS_BONUS): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
+	$(ECHO) $(ORANGE) "Compiling $<"
+	mkdir -p $(PATH_OBJS)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
+
+$(BONUS_LIB):
+	cp $(LIBFT) $(BONUS_LIB)
+	ar rs $(BONUS_LIB) $(OBJS_MAND)
+
+bonus: all $(NAME_BONUS)
 	./$(NAME_BONUS)
 
 run:
@@ -236,8 +245,10 @@ fclean: clean
 	$(MAKE) -sC $(TEST_FOLDER) fclean > /dev/null
 	$(RM) $(NAME)
 	$(RM) $(NAME_BONUS)
+	$(RM) $(BONUS_LIB)
 	$(ECHOC) $(GREEN) "--> $(NAME) deleted !"$(NC)"\n"
 	$(ECHOC) $(GREEN) "--> $(NAME_BONUS) deleted !"$(NC)"\n"
+	$(ECHOC) $(GREEN) "--> $(BONUS_LIB) deleted !"$(NC)"\n"
 	$(ECHOC) $(GREEN) "--> $(RUN_TESTS) deleted !"$(NC)"\n"
 
 re: fclean
@@ -245,6 +256,6 @@ re: fclean
 	$(MAKE) -s
 
 .PHONY: all clean fclean re run bonus
-.SILENT: $(NAME) $(NAME_BONUS) $(LIB) $(OBJS) run clean fclean re test bonus
+.SILENT: $(NAME) $(NAME_BONUS) $(LIBFT) $(OBJS) $(BONUS_LIB) run clean fclean re test bonus
 
 #endif

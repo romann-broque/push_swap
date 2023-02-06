@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:40:10 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/02 18:47:59 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 00:08:26 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list	*gen_list(t_stack *numbers, const size_t count)
 	return (root);
 }
 
-t_stack	*get_numbers(char **arg, const size_t count)
+t_stack	*get_numbers(const char **arg, const size_t count)
 {
 	size_t	i;
 	t_stack	*numbers;

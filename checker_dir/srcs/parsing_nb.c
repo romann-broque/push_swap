@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 22:26:04 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/05 22:26:39 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 00:17:50 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static bool	is_nb_valid(const char *nb)
 	return (is_valid_int(nb));
 }
 
-bool	are_nb_valid(char **numbers)
+bool	are_nb_valid(const char **numbers)
 {
 	while (*numbers != NULL && is_nb_valid(*numbers) == true)
 		++(numbers);
