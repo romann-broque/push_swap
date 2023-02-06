@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 22:26:04 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 16:54:42 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 18:27:26 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,34 @@ static bool	is_nb_valid(const char *nb)
 	return (is_valid_int(nb));
 }
 
+static bool	is_duplicated(char **numbers)
+{
+	size_t	i;
+	size_t	j;
+	int		curr_nb;
+
+	i = 0;
+	while (numbers[i] != NULL)
+	{
+		j = i + 1;
+		curr_nb = ft_atoi(numbers[i]);
+		while (numbers[j] != NULL)
+		{
+			if (curr_nb == ft_atoi(numbers[j]))
+				return (true);
+			++j;
+		}
+		++i;
+	}
+	return (false);
+}
+
 bool	are_nb_valid(char **numbers)
 {
-	while (*numbers != NULL && is_nb_valid(*numbers) == true)
-		++(numbers);
-	return (*numbers == NULL);
+	size_t	i;
+
+	i = 0;
+	while (numbers[i] != NULL && is_nb_valid(numbers[i]) == true)
+		++i;
+	return (numbers[i] == NULL && is_duplicated(numbers) == false);
 }
