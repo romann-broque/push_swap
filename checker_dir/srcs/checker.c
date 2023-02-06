@@ -6,11 +6,73 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:54:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 12:19:26 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 14:38:32 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+/////////////////////////////
+
+static void	pa_fct(t_dualstack *dual)
+{
+	push(&(dual->b), &(dual->a));
+}
+
+static void	pb_fct(t_dualstack *dual)
+{
+	push(&(dual->a), &(dual->b));
+}
+
+void	sa_fct(t_dualstack *dual)
+{
+	swap(dual->a);
+}
+
+void	sb_fct(t_dualstack *dual)
+{
+	swap(dual->b);
+}
+
+void	ss_fct(t_dualstack *dual)
+{
+	swap(dual->a);
+	swap(dual->b);
+}
+
+void	ra_fct(t_dualstack *dual)
+{
+	rotate(dual->a);
+}
+
+void	rb_fct(t_dualstack *dual)
+{
+	rotate(dual->b);
+}
+
+void	rr_fct(t_dualstack *dual)
+{
+	rotate(dual->a);
+	rotate(dual->b);
+}
+
+void	rra_fct(t_dualstack *dual)
+{
+	rev_rotate(&(dual->a));
+}
+
+void	rrb_fct(t_dualstack *dual)
+{
+	rev_rotate(&(dual->b));
+}
+
+void	rrr_fct(t_dualstack *dual)
+{
+	rev_rotate(&(dual->a));
+	rev_rotate(&(dual->b));
+}
+
+/////////////////////////////
 
 static size_t	get_strs_size(const char **strs)
 {
@@ -35,15 +97,70 @@ static t_list	*gen_instructions_list(char **elements)
 	return (head);
 }
 
-static void	sort_stack(const char **numbers, char **instructions)
+static size_t	get_str_index(const char array[11][4], const char *str)
+{
+	size_t	index;
+
+	index = 0;
+	while (array[index] != NULL && ft_strcmp(array[index], str) != 0)
+		++index;
+	return (index);
+}
+
+static void	apply_instructions(t_dualstack *dual)
+{
+	const char	operations[11][4] = {
+		"pa",
+		"pb",
+		"sa",
+		"sb",
+		"ss",
+		"ra",
+		"rb",
+		"rr",
+		"rra",
+		"rrb",
+		"rrr"
+	};
+	static void	(*fct[])(t_dualstack *) = {
+		pa_fct,
+		pb_fct,
+		sa_fct,
+		sb_fct,
+		ss_fct,
+		ra_fct,
+		rb_fct,
+		rr_fct,
+		rra_fct,
+		rrb_fct,
+		rrr_fct,
+	};
+	t_list		*curr_instruction;
+
+	curr_instruction = dual->instructions;
+	while (curr_instruction != NULL)
+	{
+		fct[get_str_index(operations, curr_instruction->content)](dual);
+		curr_instruction = curr_instruction->next;
+	}
+}
+
+static int	sort_stack(const char **numbers, char **instructions)
 {
 	const size_t	size = get_strs_size(numbers);
 	t_dualstack		dual;
 	t_stack			*stack;
+	int				ret_val;
 
+	ret_val = EXIT_FAILURE;
+	stack = get_numbers(numbers, size);
 	init_dualstack(&dual, stack, size);
 	dual.instructions = gen_instructions_list(instructions);
+	apply_instructions(&dual);
+	if (is_stack_valid(dual.a) == true && dual.b == NULL)
+		ret_val = EXIT_SUCCESS;
 	free_dualstack(&dual);
+	return (ret_val);
 }
 
 int	checker(const char **numbers)
@@ -55,9 +172,9 @@ int	checker(const char **numbers)
 	instructions = NULL;
 	if (are_nb_valid(numbers) == true)
 	{
-		ret_val = EXIT_SUCCESS;
 		instructions = get_instructions();
-		sort_stack(numbers, instructions);
+		if (sort_stack(numbers, instructions) == EXIT_SUCCESS)
+			ret_val = EXIT_SUCCESS;
 	}
 	free_strs(instructions);
 	return (ret_val);
@@ -67,12 +184,24 @@ int	checker(const char **numbers)
 	// return (ret_val);
 }
 
+static void	print_result(const int result)
+{
+	if (result == EXIT_SUCCESS)
+		ft_printf("OK");
+	else
+		ft_printf("KO");
+}
+
 int	main(const int ac, const char **av)
 {
 	int	ret_val;
 
 	ret_val = EXIT_SUCCESS;
 	if (ac > 1)
+	{
 		ret_val = checker(av + 1);
+		print_result(ret_val);
+	}
+	ft_printf("\n");
 	return (ret_val);
 }
