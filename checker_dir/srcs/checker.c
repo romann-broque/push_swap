@@ -6,73 +6,11 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:54:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 14:38:32 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 14:47:00 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-/////////////////////////////
-
-static void	pa_fct(t_dualstack *dual)
-{
-	push(&(dual->b), &(dual->a));
-}
-
-static void	pb_fct(t_dualstack *dual)
-{
-	push(&(dual->a), &(dual->b));
-}
-
-void	sa_fct(t_dualstack *dual)
-{
-	swap(dual->a);
-}
-
-void	sb_fct(t_dualstack *dual)
-{
-	swap(dual->b);
-}
-
-void	ss_fct(t_dualstack *dual)
-{
-	swap(dual->a);
-	swap(dual->b);
-}
-
-void	ra_fct(t_dualstack *dual)
-{
-	rotate(dual->a);
-}
-
-void	rb_fct(t_dualstack *dual)
-{
-	rotate(dual->b);
-}
-
-void	rr_fct(t_dualstack *dual)
-{
-	rotate(dual->a);
-	rotate(dual->b);
-}
-
-void	rra_fct(t_dualstack *dual)
-{
-	rev_rotate(&(dual->a));
-}
-
-void	rrb_fct(t_dualstack *dual)
-{
-	rev_rotate(&(dual->b));
-}
-
-void	rrr_fct(t_dualstack *dual)
-{
-	rev_rotate(&(dual->a));
-	rev_rotate(&(dual->b));
-}
-
-/////////////////////////////
 
 static size_t	get_strs_size(const char **strs)
 {

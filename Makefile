@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/06 12:08:13 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/06 14:51:26 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,12 +79,20 @@ SRCS += tree_utils.c
 ### BONUS ###
 
 PATH_SRCS_BONUS += checker_dir/srcs
+PATH_SRCS_BONUS += checker_dir/srcs/operations
 
-# srcs/checker/
+# checker_dir/srcs
 
 SRCS_BONUS += checker.c
 SRCS_BONUS += parsing_nb.c
 SRCS_BONUS += read_instructions.c
+
+# checker_dir/operations
+
+SRCS_BONUS += push_fct.c
+SRCS_BONUS += swap_fct.c
+SRCS_BONUS += rotate_fct.c
+SRCS_BONUS += rev_rotate_fct.c
 
 ifeq (bonus, $(findstring bonus, $(MAKECMDGOALS)))
 	PATH_SRCS += $(PATH_SRCS_BONUS)
