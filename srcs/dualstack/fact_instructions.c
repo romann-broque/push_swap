@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/05 17:45:09 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 16:43:42 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ void	remove_useless_pushback(t_list **parent)
 	const size_t	index_pa = get_index_from_str(*parent, "pa");
 	t_list			*begin_pa;
 
-	if (index_pa + count_pb == 0)
+	if ((index_pa + count_pb == 0) || (count_pb == 1 && index_pa == 1))
 		ft_lstclear(parent, NULL);
 	else
 	{

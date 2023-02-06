@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/06 15:22:12 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/06 17:45:35 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ PATH_SRCS += srcs/sort/bin_tree/
 
 # srcs/
 
-SRCS += push_swap.c
+MAIN += push_swap.c
 
 # srcs/dualstack/
 
@@ -79,7 +79,9 @@ SRCS += tree_utils.c
 
 # srcs/parser/
 
+SRCS += get_args.c
 SRCS += parsing_nb.c
+SRCS += parser_utils.c
 
 ### BONUS ###
 
@@ -88,7 +90,7 @@ PATH_SRCS_BONUS += checker_dir/srcs/operations
 
 # checker_dir/srcs
 
-SRCS_BONUS += checker.c
+BONUS_MAIN += checker.c
 SRCS_BONUS += read_instructions.c
 
 # checker_dir/operations
@@ -111,8 +113,8 @@ vpath %.c $(PATH_SRCS)
 PATH_OBJS = objs
 OBJS_MAND = $(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
 OBJS_BONUS = $(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS_BONUS))
-OBJS += $(OBJS_MAND)
-OBJS += $(OBJS_BONUS)
+OBJS_MAIN := $(patsubst %.c, $(PATH_OBJS)/%.o, $(MAIN))
+OBJS_BONUS_MAIN := $(patsubst %.c, $(PATH_OBJS)/%.o, $(BONUS_MAIN))
 
 #############
 #### LIB ####
@@ -204,32 +206,42 @@ endif
 
 all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJS_MAND)
-	$(CC) $(CFLAGS) $(OBJS_MAND) -o $(NAME) $(INCLUDES) $(LINKS) $(LIBFT)
-	$(ECHOC) $(GREEN) "--> $(NAME) COMPILED !"$(NC)"\n\n"
-
 $(LIBFT):
 	echo -e $(BLUE) "\n====> Building libft.a <===="$(NC)"\n"
 	$(MAKE) -sC $(LIB_FOLDER)
 	echo -e $(BLUE) "\n====> Building $(NAME) <===="$(NC)"\n"
+
+$(NAME): $(OBJS_MAND) $(OBJS_MAIN)
+	$(CC) $(CFLAGS) $(OBJS_MAND) $(OBJS_MAIN) -o $(NAME) $(INCLUDES) $(LINKS) $(LIBFT)
+	$(ECHOC) $(GREEN) "--> $(NAME) COMPILED !"$(NC)"\n\n"
+
+$(OBJS_MAIN): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
+	$(ECHO) $(ORANGE) "Compiling $<"
+	mkdir -p $(PATH_OBJS)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
 $(OBJS_MAND): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
 	$(ECHO) $(ORANGE) "Compiling $<"
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
-$(NAME_BONUS): $(BONUS_LIB) $(OBJS_BONUS)
-	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS) $(INCLUDES) $(LINKS) $(LIBFT) $(BONUS_LIB)
+$(NAME_BONUS): $(BONUS_LIB) $(OBJS_BONUS_MAIN)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) $(OBJS_BONUS_MAIN) -o $(NAME_BONUS) $(INCLUDES) $(LINKS) $(LIBFT) $(BONUS_LIB)
 	$(ECHOC) $(GREEN) "--> $(NAME_BONUS) COMPILED !"$(NC)"\n\n"
+
+$(OBJS_BONUS_MAIN): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
+	$(ECHO) $(ORANGE) "Compiling $<"
+	mkdir -p $(PATH_OBJS)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
 $(OBJS_BONUS): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
 	$(ECHO) $(ORANGE) "Compiling $<"
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
-$(BONUS_LIB):
+$(BONUS_LIB): $(OBJS_MAND) $(OBJS_BONUS)
 	cp $(LIBFT) $(BONUS_LIB)
-	ar rs $(BONUS_LIB) $(OBJS_MAND)
+	ar rs $(BONUS_LIB) $(OBJS_MAND) $(OBJS_BONUS)
 
 bonus: all $(NAME_BONUS)
 	./$(NAME_BONUS)
@@ -268,6 +280,6 @@ re: fclean
 	$(MAKE) -s
 
 .PHONY: all clean fclean re run bonus
-.SILENT: $(NAME) $(NAME_BONUS) $(LIBFT) $(OBJS) $(BONUS_LIB) run clean fclean re test bonus
+.SILENT: $(NAME) $(NAME_BONUS) $(LIBFT) $(OBJS_MAND) $(OBJS_BONUS) $(OBJS_MAIN) $(OBJS_BONUS_MAIN) $(BONUS_LIB) run clean fclean re test bonus
 
 #endif

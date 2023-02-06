@@ -6,13 +6,13 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:54:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 14:47:00 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 17:47:19 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static size_t	get_strs_size(const char **strs)
+static size_t	get_array_size(char **strs)
 {
 	size_t	size;
 
@@ -83,9 +83,9 @@ static void	apply_instructions(t_dualstack *dual)
 	}
 }
 
-static int	sort_stack(const char **numbers, char **instructions)
+static int	sort_stack(char **numbers, char **instructions)
 {
-	const size_t	size = get_strs_size(numbers);
+	const size_t	size = get_array_size(numbers);
 	t_dualstack		dual;
 	t_stack			*stack;
 	int				ret_val;
@@ -101,13 +101,15 @@ static int	sort_stack(const char **numbers, char **instructions)
 	return (ret_val);
 }
 
-int	checker(const char **numbers)
+int	checker(char **strs)
 {
 	char	**instructions;
+	char	**numbers;
 	int		ret_val;
 
 	ret_val = EXIT_FAILURE;
 	instructions = NULL;
+	numbers = get_arguments(strs);
 	if (are_nb_valid(numbers) == true)
 	{
 		instructions = get_instructions();
@@ -130,7 +132,7 @@ static void	print_result(const int result)
 		ft_printf("KO");
 }
 
-int	main(const int ac, const char **av)
+int	main(const int ac, char **av)
 {
 	int	ret_val;
 

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 15:19:24 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 17:45:13 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	free_dualstack(t_dualstack *dual);
 
 // gen_list.c
 
-t_stack	*get_numbers(const char **arg, const size_t count);
+t_stack	*get_numbers(char **arg, const size_t count);
 t_list	*gen_list(t_stack *numbers, const size_t count);
 
 // list_utils.c
@@ -153,6 +153,18 @@ size_t	get_next_index_from_nb(t_list *stack, const int nb);
 
 // PARSER //
 
-bool	are_nb_valid(const char **numbers);
+// parsing_nb.c
+
+bool	are_nb_valid(char **numbers);
+
+// get_args.c
+
+char	**get_arguments(char **arg);
+
+// parser_utils.c
+
+size_t	get_strs_size(char **strs);
+void	add_strs(char ***dest, char **src, const size_t size2);
+void	cpy_arg(char ***dest, char **arg);
 
 #endif
