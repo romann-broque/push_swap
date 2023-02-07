@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 18:41:30 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 11:49:45 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static bool	is_nextbefore(t_dualstack *dual, const size_t index, const size_t ne
 {
 	const size_t	half_size = ft_lstsize(dual->a);
 
-	return (get_abs(next_index - half_size) > get_abs(index - half_size));
+	return (get_abs(next_index - half_size) > get_abs(index - half_size) + 1);
 }
 
 static void	put_top_a(t_dualstack *dual, const size_t index)
@@ -44,12 +44,18 @@ static void	push_index_to_b(t_dualstack *dual, const size_t index)
 	//print_dualstack(dual);
 }
 
+// static void	indicate_rra(t_dualstack *dual)
+// {
+// 	ft_contadd_back(&(dual->instructions), "id");
+// }
+
 static void	stack_op(t_dualstack *dual, const int content)
 {
 	bool			is_nextbefore_val;
 	const size_t	index = get_index_from_nb(dual->a, content);
 	const size_t	next_index = get_next_index_from_nb(dual->a, content);
 	size_t			curr_index;
+	// const size_t	rank = get_rank_from_nb(dual->a, content);
 
 	//print_dualstack(dual);
 	is_nextbefore_val = is_nextbefore(dual, index, next_index);
@@ -57,8 +63,17 @@ static void	stack_op(t_dualstack *dual, const int content)
 		push_index_to_b(dual, next_index);
 	curr_index = get_index_from_nb(dual->a, content);
 	push_index_to_b(dual, curr_index);
-	if (is_nextbefore_val)
+	if (is_nextbefore_val == true)
+	{
 		sb(dual);
+		// if (dual->a != NULL && dual->a->next != NULL
+		// 	&& ((t_stack *)(dual->a->content))->rank != rank + 1
+		// 	&& ((t_stack *)(dual->a->next->content))->rank != rank + 1)
+		// {
+		// 	indicate_rra(dual);
+		// 	indicate_rra(dual);
+		// }
+	}
 }
 
 static void	infix_sort(t_dualstack *dual, t_tree *root)

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 16:43:42 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 11:15:43 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,28 +174,15 @@ static void	add_rotation1(t_list **parent)
 	}
 }
 
-static void	add_rotation2(t_list **parent)
-{
-	t_list	*tmp;
-
-	while (ft_lstsize(*parent) >= 2)
-	{
-		if ((ft_strcmp((*parent)->content, "sa") == 0)
-			&& (ft_strcmp((*parent)->next->content, "pa") == 0))
-		{
-			ft_lstinsert(parent, "rra");
-			ft_lstinsert(parent, "rra");
-			break ;
-		}
-		else
-		{
-			tmp = (*parent)->next->next;
-			add_rotation2(&((*parent)->next));
-			if (tmp == (*parent)->next->next)
-				break ;
-		}
-	}
-}
+// static void	add_rotation2(t_list *parent)
+// {
+// 	while (parent != NULL)
+// 	{
+// 		if (ft_strcmp(parent->content, "id") == 0)
+// 			parent->content = "rra";
+// 		parent = parent->next;
+// 	}
+// }
 
 //////////////////
 
@@ -209,5 +196,5 @@ void	fact_instructions(t_list **parent)
 	remove_useless_push(*parent);
 	remove_useless_pushback(parent);
 	add_rotation1(parent);
-	add_rotation2(parent);
+	// add_rotation2(*parent);
 }

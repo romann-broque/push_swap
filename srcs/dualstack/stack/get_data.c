@@ -6,13 +6,13 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:19:22 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/05 14:49:17 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/06 18:56:02 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	get_rank_from_nb(t_list *stack, const int nb)
+size_t	get_rank_from_nb(t_list *stack, const int nb)
 {
 	while (((t_stack *)(stack->content))->nb != nb)
 		stack = stack->next;

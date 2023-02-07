@@ -2,6 +2,15 @@
 	"files.associations": {
 		"run_tests.h": "c",
 		"push_swap.h": "c",
-		"numbers": "c"
+		"numbers": "c",
+		"libft.h": "c",
+		"ft_conv.h": "c",
+		"ft_ctype.h": "c",
+		"ft_free.h": "c",
+		"ft_printf.h": "c",
+		"ft_math.h": "c",
+		"ft_output.h": "c",
+		"ft_strings.h": "c",
+		"ft_memory.h": "c"
 	}
 }

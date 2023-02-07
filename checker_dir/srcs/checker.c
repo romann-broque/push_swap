@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:54:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 17:47:19 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 11:49:23 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ static int	sort_stack(char **numbers, char **instructions)
 	apply_instructions(&dual);
 	if (is_stack_valid(dual.a) == true && dual.b == NULL)
 		ret_val = EXIT_SUCCESS;
+	else
+		print_dualstack(&dual);
 	free_dualstack(&dual);
 	return (ret_val);
 }
