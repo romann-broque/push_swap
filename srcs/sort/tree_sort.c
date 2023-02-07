@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/07 18:21:02 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 18:50:16 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static bool	is_nextbefore(t_dualstack *dual, const size_t index, const size_t ne
 
 	return (get_abs(next_index - half_size) > get_abs(index - half_size) + 1);
 }
+
+/////////////////////////////////////////
 
 static void	put_top_a(t_dualstack *dual, const size_t index)
 {
@@ -44,20 +46,13 @@ static void	push_index_to_b(t_dualstack *dual, const size_t index)
 	//print_dualstack(dual);
 }
 
-// static void	indicate_rra(t_dualstack *dual)
-// {
-// 	ft_contadd_back(&(dual->instructions), "id");
-// }
-
 static void	stack_op(t_dualstack *dual, const int content)
 {
 	bool			is_nextbefore_val;
 	const ssize_t	index = get_index_from_nb(dual->a, content);
 	const ssize_t	next_index = get_next_index_from_nb(dual->a, content);
 	size_t			curr_index;
-	// const size_t	rank = get_rank_from_nb(dual->a, content);
 
-	//print_dualstack(dual);
 	is_nextbefore_val = false;
 	if (next_index != -1)
 		is_nextbefore_val = is_nextbefore(dual, index, next_index);
@@ -66,16 +61,7 @@ static void	stack_op(t_dualstack *dual, const int content)
 	curr_index = get_index_from_nb(dual->a, content);
 	push_index_to_b(dual, curr_index);
 	if (is_nextbefore_val == true)
-	{
 		sb(dual);
-		// if (dual->a != NULL && dual->a->next != NULL
-		// 	&& ((t_stack *)(dual->a->content))->rank != rank + 1
-		// 	&& ((t_stack *)(dual->a->next->content))->rank != rank + 1)
-		// {
-		// 	indicate_rra(dual);
-		// 	indicate_rra(dual);
-		// }
-	}
 }
 
 static void	infix_sort(t_dualstack *dual, t_tree *root)
@@ -91,20 +77,12 @@ static void	infix_sort(t_dualstack *dual, t_tree *root)
 	}
 }
 
-// void	tree_sort(t_dualstack *dual, t_tree *root)
-// {
-// 	infix_sort(dual, root);
-// 	while (dual->b != NULL)
-// 		pa(dual);
-// 	fact_instructions(&(dual->instructions));
-// }
+/////// TREE_SORT
 
 static void	tree_sort_rec(t_dualstack *dual, t_tree *root, const size_t size)
 {
-	const float		fact = get_average_disp(dual->a);
-	size_t			i;
+	size_t	i;
 
-	dprintf(STDERR_FILENO, "fact -> %f\n", fact);
 	if (size > 0)
 	{
 		i = 0;
@@ -114,13 +92,8 @@ static void	tree_sort_rec(t_dualstack *dual, t_tree *root, const size_t size)
 			++i;
 		}
 		infix_sort(dual, root);
-		//infix_rev_sort(dual, root);
-		i = 0;
-		while (is_stack_rev_sorted(dual->b) == false)// && i < size / 2 + size / 4)
-		{
+		while (is_stack_rev_sorted(dual->b) == false) // && i < size / 2 + size / 4)
 			pa(dual);
-			++i;
-		}
 		tree_sort_rec(dual, root, size / 2);
 	}
 }
