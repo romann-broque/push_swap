@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/07 14:56:06 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 18:16:55 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	remove_useless_push(t_list *parent)
 		if (ft_strcmp(parent->next->content, "pb") == 0 && ft_strcmp(parent->next->next->content, "pa") == 0)
 		{
 			ft_lstremove(&parent, NULL);
-			ft_lstremove(&(parent->next), NULL);
+			ft_lstremove(&parent, NULL);
 			break ;
 		}
 		else
@@ -69,7 +69,7 @@ void	remove_useless_pushswap(t_list **parent)
 			&& ft_strcmp((*parent)->next->next->content, "pb") == 0
 			&& ft_strcmp((*parent)->next->next->next->content, "sb") == 0)
 		{
-			ft_lstremove(parent, NULL);
+			ft_lstremove(&((*parent)->next), NULL);
 			ft_lstremove(&((*parent)->next), NULL);
 			(*parent)->next->content = "sa";
 			break ;
@@ -190,11 +190,11 @@ void	fact_instructions(t_list **parent)
 {
 	//print_instructions(*parent);
 	//printf("<------->\n");
-	pre_remove_useless_pushswap(parent);
-	remove_useless_pushswap(parent);
+	//remove_useless_pushback(parent);
 	pre_remove_useless_push(parent);
 	remove_useless_push(*parent);
-	//remove_useless_pushback(parent);
+	pre_remove_useless_pushswap(parent);
+	remove_useless_pushswap(parent);
 	//add_rotation1(parent);
 	// add_rotation2(*parent);
 }
