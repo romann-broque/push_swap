@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/07 14:32:11 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 15:10:28 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,23 +99,34 @@ static void	infix_sort(t_dualstack *dual, t_tree *root)
 // 	fact_instructions(&(dual->instructions));
 // }
 
-void	tree_sort(t_dualstack *dual, t_tree *root)
+void	tree_sort(t_dualstack *dual, t_tree *root, const size_t size)
 {
-	const size_t	size = ft_lstsize(dual->a);
+	const float		fact = get_average_disp(dual->a);
 	size_t			i;
 
-	i = 0;
-	while (i < size / 2)
+	dprintf(STDERR_FILENO, "fact -> %f\n", fact);
+	if (size > 1 && fact > size / (2 * fact))
 	{
-		pb(dual);
-		++i;
+		i = 0;
+		while (i < size / 2)
+		{
+			pb(dual);
+			++i;
+		}
+		infix_sort(dual, root);
+		while (dual->b != NULL)
+			pa(dual);
+		tree_sort(dual, root, size / 2);
 	}
-	infix_sort(dual, root);
-	while (dual->b != NULL)
-		pa(dual);
-	infix_sort(dual, root);
-	while (dual->b != NULL)
-		pa(dual);
+	// infix_sort(dual, root);
+	// while (dual->b != NULL)
+	// 	pa(dual);
 	//print_dualstack(dual);
-	fact_instructions(&(dual->instructions));
+	else
+	{
+		infix_sort(dual, root);
+		while (dual->b != NULL)
+			pa(dual);
+		fact_instructions(&(dual->instructions));
+	}
 }

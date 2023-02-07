@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:23 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/03 16:49:20 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 14:46:31 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_disp(const t_stack *element1, const t_stack *element2)
 
 bool	isin_stack(t_list *stack, const int nb)
 {
-	return (get_index_from_nb(stack, nb) < ft_lstsize(stack));
+	return (get_index_from_nb(stack, nb) != -1);
 }
 
 float	get_average_disp(t_list *stack)
