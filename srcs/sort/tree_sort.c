@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/07 11:49:45 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 14:32:11 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,15 @@ static void	push_index_to_b(t_dualstack *dual, const size_t index)
 static void	stack_op(t_dualstack *dual, const int content)
 {
 	bool			is_nextbefore_val;
-	const size_t	index = get_index_from_nb(dual->a, content);
-	const size_t	next_index = get_next_index_from_nb(dual->a, content);
+	const ssize_t	index = get_index_from_nb(dual->a, content);
+	const ssize_t	next_index = get_next_index_from_nb(dual->a, content);
 	size_t			curr_index;
 	// const size_t	rank = get_rank_from_nb(dual->a, content);
 
 	//print_dualstack(dual);
-	is_nextbefore_val = is_nextbefore(dual, index, next_index);
+	is_nextbefore_val = false;
+	if (next_index != -1)
+		is_nextbefore_val = is_nextbefore(dual, index, next_index);
 	if (is_nextbefore_val == true)
 		push_index_to_b(dual, next_index);
 	curr_index = get_index_from_nb(dual->a, content);
@@ -89,10 +91,31 @@ static void	infix_sort(t_dualstack *dual, t_tree *root)
 	}
 }
 
+// void	tree_sort(t_dualstack *dual, t_tree *root)
+// {
+// 	infix_sort(dual, root);
+// 	while (dual->b != NULL)
+// 		pa(dual);
+// 	fact_instructions(&(dual->instructions));
+// }
+
 void	tree_sort(t_dualstack *dual, t_tree *root)
 {
+	const size_t	size = ft_lstsize(dual->a);
+	size_t			i;
+
+	i = 0;
+	while (i < size / 2)
+	{
+		pb(dual);
+		++i;
+	}
 	infix_sort(dual, root);
 	while (dual->b != NULL)
 		pa(dual);
+	infix_sort(dual, root);
+	while (dual->b != NULL)
+		pa(dual);
+	//print_dualstack(dual);
 	fact_instructions(&(dual->instructions));
 }

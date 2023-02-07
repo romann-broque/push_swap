@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:54:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/07 11:49:23 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 14:43:41 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ static int	sort_stack(char **numbers, char **instructions)
 		ret_val = EXIT_SUCCESS;
 	else
 		print_dualstack(&dual);
+	free(stack);
+	ft_lstclear(&(dual.a), NULL);
 	free_dualstack(&dual);
 	return (ret_val);
 }
@@ -118,12 +120,9 @@ int	checker(char **strs)
 		if (sort_stack(numbers, instructions) == EXIT_SUCCESS)
 			ret_val = EXIT_SUCCESS;
 	}
+	free_strs(numbers);
 	free_strs(instructions);
 	return (ret_val);
-	// {
-	// 	ret_val = is_stack_sorted(numbers);
-	// }
-	// return (ret_val);
 }
 
 static void	print_result(const int result)

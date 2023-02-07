@@ -6,29 +6,33 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:19:22 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 18:56:02 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 14:26:58 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	get_rank_from_nb(t_list *stack, const int nb)
+ssize_t	get_rank_from_nb(t_list *stack, const int nb)
 {
-	while (((t_stack *)(stack->content))->nb != nb)
+	while (stack != NULL && ((t_stack *)(stack->content))->nb != nb)
 		stack = stack->next;
+	if (stack == NULL)
+		return (-1);
 	return (((t_stack *)(stack->content))->rank);
 }
 
-static int	get_nb_from_rank(t_list *stack, const size_t rank)
+static long	get_nb_from_rank(t_list *stack, const size_t rank)
 {
-	while (((t_stack *)(stack->content))->rank != rank)
+	while (stack != NULL && ((t_stack *)(stack->content))->rank != rank)
 		stack = stack->next;
+	if (stack == NULL)
+		return (LONG_MAX);
 	return (((t_stack *)(stack->content))->nb);
 }
 
-size_t	get_index_from_nb(t_list *stack, const int nb)
+ssize_t	get_index_from_nb(t_list *stack, const int nb)
 {
-	size_t	index;
+	ssize_t	index;
 
 	index = 0;
 	while (stack != NULL && ((t_stack *)(stack->content))->nb != nb)
@@ -36,6 +40,8 @@ size_t	get_index_from_nb(t_list *stack, const int nb)
 		++index;
 		stack = stack->next;
 	}
+	if (stack == NULL)
+		return (-1);
 	return (index);
 }
 
@@ -52,14 +58,16 @@ int	get_nb_from_index(t_list *stack, const size_t index)
 	return (((t_stack *)(stack->content))->nb);
 }
 
-size_t	get_next_index_from_nb(t_list *stack, const int nb)
+ssize_t	get_next_index_from_nb(t_list *stack, const int nb)
 {
-	size_t	rank;
-	size_t	next_nb;
+	ssize_t	rank;
+	long	next_nb;
 
 	if (stack == NULL || stack->next == NULL)
 		return (0);
 	rank = get_rank_from_nb(stack, nb);
 	next_nb = get_nb_from_rank(stack, rank + 1);
+	if (next_nb == LONG_MAX)
+		return (-1);
 	return (get_index_from_nb(stack, next_nb));
 }

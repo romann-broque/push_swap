@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/07 11:15:43 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/07 14:33:23 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,27 +152,27 @@ void	remove_useless_pushback(t_list **parent)
 
 ///////////////////
 
-static void	add_rotation1(t_list **parent)
-{
-	t_list	*tmp;
+// static void	add_rotation1(t_list **parent)
+// {
+// 	t_list	*tmp;
 
-	while (ft_lstsize(*parent) >= 2)
-	{
-		if ((ft_strcmp((*parent)->content, "sa") == 0) && (ft_strcmp((*parent)->next->content, "pb") == 0))
-		{
-			ft_lstinsert(parent, "ra");
-			ft_lstinsert(parent, "ra");
-			break ;
-		}
-		else
-		{
-			tmp = (*parent)->next->next;
-			add_rotation1(&((*parent)->next));
-			if (tmp == (*parent)->next->next)
-				break ;
-		}
-	}
-}
+// 	while (ft_lstsize(*parent) >= 2)
+// 	{
+// 		if ((ft_strcmp((*parent)->content, "sa") == 0) && (ft_strcmp((*parent)->next->content, "pb") == 0))
+// 		{
+// 			ft_lstinsert(parent, "ra");
+// 			ft_lstinsert(parent, "ra");
+// 			break ;
+// 		}
+// 		else
+// 		{
+// 			tmp = (*parent)->next->next;
+// 			add_rotation1(&((*parent)->next));
+// 			if (tmp == (*parent)->next->next)
+// 				break ;
+// 		}
+// 	}
+// }
 
 // static void	add_rotation2(t_list *parent)
 // {
@@ -192,9 +192,9 @@ void	fact_instructions(t_list **parent)
 	//printf("<------->\n");
 	pre_remove_useless_pushswap(parent);
 	remove_useless_pushswap(parent);
-	pre_remove_useless_push(parent);
-	remove_useless_push(*parent);
-	remove_useless_pushback(parent);
-	add_rotation1(parent);
+	// pre_remove_useless_push(parent);
+	// remove_useless_push(*parent);
+	// remove_useless_pushback(parent);
+	//add_rotation1(parent);
 	// add_rotation2(*parent);
 }
