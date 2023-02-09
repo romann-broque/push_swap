@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/07 15:52:57 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/08 00:48:28 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ ssize_t	get_rank_from_nb(t_list *stack, const int nb);
 int		get_nb_from_index(t_list *stack, const size_t index);
 ssize_t	get_index_from_nb(t_list *stack, const int nb);
 ssize_t	get_next_index_from_nb(t_list *stack, const int nb);
+ssize_t	get_prev_index_from_nb(t_list *stack, const int nb);
 
 // PARSER //
 
