@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/06 17:45:35 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/10 15:07:13 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ PATH_SRCS += srcs/operations/
 PATH_SRCS += srcs/parser/
 PATH_SRCS += srcs/sort/
 PATH_SRCS += srcs/sort/bin_tree/
+PATH_SRCS += srcs/sort/sort_operations/
 
 # srcs/
 
@@ -75,7 +76,13 @@ SRCS += rank_sort.c
 
 # srcs/sort/bin_tree/
 
+SRCS += infix.c
 SRCS += tree_utils.c
+
+# srcs/sort/sort_operations/
+
+SRCS += push_to_stack.c
+SRCS += stack_op.c
 
 # srcs/parser/
 

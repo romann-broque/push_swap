@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/08 00:48:28 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/10 15:05:57 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,18 @@ void	rank_sort(t_dualstack *dual);
 
 void	tree_sort(t_dualstack *dual, t_tree *root);
 
+// SORT_OPERATIONS
+
+// stack_op.c
+
+void	stack_op(t_dualstack *dual, const int content);
+void	stack_op_rev(t_dualstack *dual, const int content);
+
+// push_to_stack.c
+
+void	push_index_to_a(t_dualstack *dual, const size_t index);
+void	push_index_to_b(t_dualstack *dual, const size_t index);
+
 // BIN_TREE //
 
 // tree_utils.c
@@ -71,6 +83,11 @@ void	tree_sort(t_dualstack *dual, t_tree *root);
 t_tree	*create_tree(t_list *stack);
 void	display_tree(t_tree *root);
 void	clear_tree(t_tree *tree);
+
+// infix.c
+
+void	infix_sort(t_dualstack *dual, t_tree *root);
+void	infix_sort_rev(t_dualstack *dual, t_tree *root);
 
 // OPERATIONS //
 
