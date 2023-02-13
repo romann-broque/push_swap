@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:19:22 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/10 15:23:46 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/10 16:23:23 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,27 @@ ssize_t	get_prev_index_from_nb(t_list *stack, const int nb)
 	return (get_index_from_nb(stack, next_nb));
 }
 
-ssize_t	get_next_index_from_index(t_list *stack, const size_t index)
+static size_t	get_rank_from_index(t_list *stack, size_t index)
 {
-	const long	nb = get_nb_from_index(stack, index + 1);
+	size_t	i;
+
+	i = 0;
+	while (stack != NULL && i < index)
+	{
+		++i;
+		stack = stack->next;
+	}
+	if (stack == NULL)
+		return (0);
+	return (((t_stack *)(stack->content))->rank);
+}
+
+ssize_t	get_next_index_from_index(t_list *stack_src, t_list *stack_dest, const size_t index)
+{
+	const size_t	rank = get_rank_from_index(stack_src, index);
+	const long		nb = get_nb_from_rank(stack_dest, rank + 1);
 
 	if (nb == INVALID_NB)
 		return (0);
-	return (get_index_from_nb(stack, nb));
+	return (get_index_from_nb(stack_dest, nb));
 }

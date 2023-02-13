@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/09 10:56:12 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/10 16:44:25 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	pre_remove_useless_push(t_list **parent)
 
 void	remove_useless_push(t_list *parent)
 {
-	t_list	*tmp;
-
 	while (ft_lstsize(parent) > 2)
 	{
 		if ((ft_strcmp(parent->next->content, "pb") == 0 && ft_strcmp(parent->next->next->content, "pa") == 0)
@@ -37,12 +35,7 @@ void	remove_useless_push(t_list *parent)
 			break ;
 		}
 		else
-		{
-			tmp = parent->next->next;
-			remove_useless_push(parent->next);
-			if (tmp == parent->next->next)
-				break ;
-		}
+			parent = parent->next;
 	}
 }
 

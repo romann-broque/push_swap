@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/10 15:19:23 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/10 17:14:13 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ bool	are_nb_sorted(t_list *n1, t_list *n2);
 bool	is_stack_valid(t_list *stack);
 bool	is_stack_sorted(t_list *stack);
 bool	is_stack_rev_sorted(t_list *stack);
+
+// pre_sort.c
+
+void	pre_sort(t_dualstack *dual);
 
 // sort_dualstack.c
 
@@ -176,7 +180,7 @@ long	get_nb_from_index(t_list *stack, const size_t index);
 ssize_t	get_index_from_nb(t_list *stack, const int nb);
 ssize_t	get_next_index_from_nb(t_list *stack, const int nb);
 ssize_t	get_prev_index_from_nb(t_list *stack, const int nb);
-ssize_t	get_next_index_from_index(t_list *stack, const size_t index);
+ssize_t	get_next_index_from_index(t_list *stack_src, t_list *stack_dest, const size_t index);
 
 // PARSER //
 

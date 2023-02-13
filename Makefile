@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/10 15:07:13 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/10 17:14:32 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ SRCS += rev_rotate.c
 
 SRCS += is_sorted.c
 SRCS += sort_dualstack.c
+SRCS += pre_sort.c
 SRCS += tree_sort.c
 SRCS += rank_sort.c
 

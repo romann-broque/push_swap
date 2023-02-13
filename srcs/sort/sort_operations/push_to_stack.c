@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:03:50 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/10 15:27:05 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/10 16:55:54 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,10 @@ void	push_index_to_b(t_dualstack *dual, const size_t index)
 {
 	put_top_a(dual, index);
 	pb(dual);
-	//print_dualstack(dual);
 }
 
 void	push_index_to_a(t_dualstack *dual, const size_t index)
 {
 	put_top_b(dual, index);
-	if (dual->a != NULL)
-		put_top_a(dual, get_next_index_from_index(dual->a, index));
 	pa(dual);
-	//print_dualstack(dual);
 }
