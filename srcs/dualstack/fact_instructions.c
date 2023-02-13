@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/10 16:44:25 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:19:37 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,50 @@ void	pre_remove_useless_push(t_list **parent)
 		&& ((ft_strcmp((*parent)->content, "pb") == 0 && ft_strcmp((*parent)->next->content, "pa") == 0)
 			|| (ft_strcmp((*parent)->content, "pa") == 0 && ft_strcmp((*parent)->next->content, "pb") == 0)))
 	{
+		printf("wouah !\n");
 		ft_lstremove(parent, NULL);
 		ft_lstremove(parent, NULL);
 	}
 }
 
-void	remove_useless_push(t_list *parent)
+// void	remove_useless_push(t_list *parent)
+// {
+// 	while (ft_lstsize(parent) > 2)
+// 	{
+// 		if ((ft_strcmp(parent->next->content, "pb") == 0 && ft_strcmp(parent->next->next->content, "pa") == 0)
+// 			|| (ft_strcmp(parent->next->content, "pa") == 0 && ft_strcmp(parent->next->next->content, "pb") == 0))
+// 		{
+// 			ft_lstremove(&parent, NULL);
+// 			ft_lstremove(&parent, NULL);
+// 			break ;
+// 		}
+// 		else
+// 			parent = parent->next;
+// 	}
+// }
+
+void	remove_useless_push(t_list **parent)
 {
-	while (ft_lstsize(parent) > 2)
+	t_list	*tmp;
+
+	while (ft_lstsize(*parent) > 2)
 	{
-		if ((ft_strcmp(parent->next->content, "pb") == 0 && ft_strcmp(parent->next->next->content, "pa") == 0)
-			|| (ft_strcmp(parent->next->content, "pa") == 0 && ft_strcmp(parent->next->next->content, "pb") == 0))
+		if ((ft_strcmp((*parent)->next->content, "pa") == 0
+				&& ft_strcmp((*parent)->next->next->content, "pb") == 0)
+			|| (ft_strcmp((*parent)->next->content, "pb") == 0
+				&& ft_strcmp((*parent)->next->next->content, "pa") == 0))
 		{
-			ft_lstremove(&parent, NULL);
-			ft_lstremove(&parent, NULL);
+			ft_lstremove(parent, NULL);
+			ft_lstremove(parent, NULL);
 			break ;
 		}
 		else
-			parent = parent->next;
+		{
+			tmp = (*parent)->next->next;
+			remove_useless_push(&((*parent)->next));
+			if (tmp == (*parent)->next->next)
+				break ;
+		}
 	}
 }
 
@@ -145,41 +171,57 @@ void	remove_useless_pushback(t_list **parent)
 	}
 }
 
-///////////////////
+void	rotate_fact1(t_list **parent)
+{
+	t_list	*tmp;
 
-// static void	add_rotation1(t_list **parent)
-// {
-// 	t_list	*tmp;
+	while (ft_lstsize(*parent) > 2)
+	{
+		if ((ft_strcmp((*parent)->next->content, "ra") == 0
+				&& ft_strcmp((*parent)->next->next->content, "rb") == 0)
+			|| (ft_strcmp((*parent)->next->content, "rb") == 0
+				&& ft_strcmp((*parent)->next->next->content, "ra") == 0))
+		{
+			ft_lstremove(&(*parent)->next, NULL);
+			(*parent)->next->content = "rr";
+			rotate_fact1(&((*parent)->next));
+			break ;
+		}
+		else
+		{
+			tmp = (*parent)->next->next;
+			rotate_fact1(&((*parent)->next));
+			if (tmp == (*parent)->next->next)
+				break ;
+		}
+	}
+}
 
-// 	while (ft_lstsize(*parent) >= 2)
-// 	{
-// 		if ((ft_strcmp((*parent)->content, "sa") == 0) && (ft_strcmp((*parent)->next->content, "pb") == 0))
-// 		{
-// 			ft_lstinsert(parent, "ra");
-// 			ft_lstinsert(parent, "ra");
-// 			break ;
-// 		}
-// 		else
-// 		{
-// 			tmp = (*parent)->next->next;
-// 			add_rotation1(&((*parent)->next));
-// 			if (tmp == (*parent)->next->next)
-// 				break ;
-// 		}
-// 	}
-// }
+void	rotate_fact2(t_list **parent)
+{
+	t_list	*tmp;
 
-// static void	add_rotation2(t_list *parent)
-// {
-// 	while (parent != NULL)
-// 	{
-// 		if (ft_strcmp(parent->content, "id") == 0)
-// 			parent->content = "rra";
-// 		parent = parent->next;
-// 	}
-// }
-
-//////////////////
+	while (ft_lstsize(*parent) > 2)
+	{
+		if ((ft_strcmp((*parent)->next->content, "rra") == 0
+				&& ft_strcmp((*parent)->next->next->content, "rrb") == 0)
+			|| (ft_strcmp((*parent)->next->content, "rrb") == 0
+				&& ft_strcmp((*parent)->next->next->content, "rra") == 0))
+		{
+			ft_lstremove(&(*parent)->next, NULL);
+			(*parent)->next->content = "rrr";
+			rotate_fact2(&((*parent)->next));
+			break ;
+		}
+		else
+		{
+			tmp = (*parent)->next->next;
+			rotate_fact2(&((*parent)->next));
+			if (tmp == (*parent)->next->next)
+				break ;
+		}
+	}
+}
 
 void	fact_instructions(t_list **parent)
 {
@@ -189,7 +231,7 @@ void	fact_instructions(t_list **parent)
 	pre_remove_useless_pushswap(parent);
 	remove_useless_pushswap(parent);
 	pre_remove_useless_push(parent);
-	remove_useless_push(*parent);
-	//add_rotation1(parent);
-	// add_rotation2(*parent);
+	remove_useless_push(parent);
+	rotate_fact1(parent);
+	//rotate_fact2(parent);
 }

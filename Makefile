@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/10 17:14:32 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/13 10:43:14 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -149,6 +149,8 @@ endif
 #### HEADERS ####
 #################
 
+HEADER = push_swap.h
+
 vpath %.h $(INCLUDES)
 
 ##################
@@ -228,7 +230,7 @@ $(OBJS_MAIN): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
-$(OBJS_MAND): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
+$(OBJS_MAND): $(PATH_OBJS)/%.o: %.c $(HEADER) $(MAKEFILE)
 	$(ECHO) $(ORANGE) "Compiling $<"
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
@@ -237,7 +239,7 @@ $(NAME_BONUS): $(BONUS_LIB) $(OBJS_BONUS_MAIN)
 	$(CC) $(CFLAGS) $(OBJS_BONUS) $(OBJS_BONUS_MAIN) -o $(NAME_BONUS) $(INCLUDES) $(LINKS) $(LIBFT) $(BONUS_LIB)
 	$(ECHOC) $(GREEN) "--> $(NAME_BONUS) COMPILED !"$(NC)"\n\n"
 
-$(OBJS_BONUS_MAIN): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
+$(OBJS_BONUS_MAIN): $(PATH_OBJS)/%.o: %.c $(HEADER) $(MAKEFILE)
 	$(ECHO) $(ORANGE) "Compiling $<"
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3

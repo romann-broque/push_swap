@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/10 17:14:13 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:46:53 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 /// DEFINES ///
 ///////////////
 
-# define INVALID_NB LONG_MAX
+# define INVALID_NB		LONG_MAX
+# define PART_CUTTING	10
 
 //////////////////
 /// STRUCTURES ///
@@ -60,7 +61,7 @@ bool	is_stack_rev_sorted(t_list *stack);
 
 // pre_sort.c
 
-void	pre_sort(t_dualstack *dual);
+void	pre_sort(t_dualstack *dual, const size_t part_cutting);
 
 // sort_dualstack.c
 
