@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:00:59 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/13 16:23:36 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/14 01:57:15 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,14 @@ void	pre_sort(t_dualstack *dual, const size_t part_count)
 	{
 		stack = (t_stack *)(dual->a->content);
 		curr_min_rank = get_min_rank(dual->a);
-		if (stack->rank <= (part * max_rank) / part_count)
+		if (stack->rank <= ((part + 1) * max_rank) / part_count)
+		{
 			pb(dual);
+			if (stack->rank > (part * max_rank) / part_count)
+				rb(dual);
+		}
 		else if (part < part_count && curr_min_rank > (part * max_rank) / part_count)
 			++part;
-		// if (dual->a != NULL && dual->a->next != NULL
-		// 	&& stack->rank < ((t_stack *)(dual->a->next->content))->rank)
-		// 	rb(dual);
 		ra(dual);
 	}
 	infix_sort_rev(dual, dual->tree);
