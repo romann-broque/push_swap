@@ -6,13 +6,13 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:03:50 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/10 16:55:54 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/14 02:14:48 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	put_top_a(t_dualstack *dual, const size_t index)
+void	put_top_a(t_dualstack *dual, const size_t index)
 {
 	const int		nb = get_nb_from_index(dual->a, index);
 	const size_t	half_size = ft_lstsize(dual->a) / 2;
@@ -30,7 +30,7 @@ static void	put_top_a(t_dualstack *dual, const size_t index)
 	}
 }
 
-static void	put_top_b(t_dualstack *dual, const size_t index)
+void	put_top_b(t_dualstack *dual, const size_t index)
 {
 	const int		nb = get_nb_from_index(dual->b, index);
 	const size_t	half_size = ft_lstsize(dual->b) / 2;

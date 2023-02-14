@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/14 01:43:52 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/14 02:48:45 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ///////////////
 
 # define INVALID_NB		LONG_MAX
-# define PART_CUTTING	10
+# define PART_CUTTING	20
 
 //////////////////
 /// STRUCTURES ///
@@ -84,6 +84,8 @@ void	stack_op_rev(t_dualstack *dual, const int content);
 
 // push_to_stack.c
 
+void	put_top_a(t_dualstack *dual, const size_t index);
+void	put_top_b(t_dualstack *dual, const size_t index);
 void	push_index_to_a(t_dualstack *dual, const size_t index);
 void	push_index_to_b(t_dualstack *dual, const size_t index);
 
