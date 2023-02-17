@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/14 15:41:15 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/17 23:12:23 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -221,7 +221,7 @@ $(LIBFT):
 	echo -e $(BLUE) "\n====> Building $(NAME) <===="$(NC)"\n"
 
 $(NAME): $(OBJS_MAND) $(OBJS_MAIN)
-	$(CC) $(CFLAGS) $(OBJS_MAND) $(OBJS_MAIN) -o $(NAME) $(INCLUDES) $(LINKS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS_MAND) $(OBJS_MAIN) -o $(NAME) $(INCLUDES) $(LIBFT)
 	$(ECHOC) $(GREEN) "--> $(NAME) COMPILED !"$(NC)"\n\n"
 
 $(OBJS_MAIN): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
@@ -235,7 +235,7 @@ $(OBJS_MAND): $(PATH_OBJS)/%.o: %.c $(HEADER) $(MAKEFILE)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
 $(NAME_BONUS): $(BONUS_LIB) $(OBJS_BONUS_MAIN)
-	$(CC) $(CFLAGS) $(OBJS_BONUS) $(OBJS_BONUS_MAIN) -o $(NAME_BONUS) $(INCLUDES) $(LINKS) $(LIBFT) $(BONUS_LIB)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) $(OBJS_BONUS_MAIN) -o $(NAME_BONUS) $(INCLUDES) $(LIBFT) $(BONUS_LIB)
 	$(ECHOC) $(GREEN) "--> $(NAME_BONUS) COMPILED !"$(NC)"\n\n"
 
 $(OBJS_BONUS_MAIN): $(PATH_OBJS)/%.o: %.c $(HEADER) $(MAKEFILE)

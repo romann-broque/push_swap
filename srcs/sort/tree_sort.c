@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/14 03:08:41 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/17 23:10:15 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,4 @@ void	tree_sort(t_dualstack *dual, t_tree *root)
 	infix_sort(dual, root);
 	while (dual->b != NULL)
 		pa(dual);
-	// infix_sort(dual, root);
-	// while (dual->b != NULL)
-	// 	pa(dual);
 }

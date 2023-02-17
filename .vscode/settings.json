@@ -11,6 +11,7 @@
 		"ft_math.h": "c",
 		"ft_output.h": "c",
 		"ft_strings.h": "c",
-		"ft_memory.h": "c"
+		"ft_memory.h": "c",
+		"math.h": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/14 15:41:00 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:01:28 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ///////////////
 
 # define INVALID_NB		LONG_MAX
-# define PART_CUTTING	20
+# define PART_CUTTING	10
 
 //////////////////
 /// STRUCTURES ///
@@ -54,7 +54,6 @@ typedef struct s_dualstack
 
 // is_sorted.c
 
-bool	are_nb_sorted(t_list *n1, t_list *n2);
 bool	is_stack_valid(t_list *stack);
 bool	is_stack_sorted(t_list *stack);
 bool	is_stack_rev_sorted(t_list *stack);
