@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/13 17:52:18 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:42:05 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,5 +250,5 @@ void	fact_instructions(t_list **parent)
 	remove_useless_push(parent);
 	rotate_fact1(parent);
 	fact_push_rotate(parent);
-	//rotate_fact2(parent);
+	rotate_fact2(parent);
 }

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/14 02:48:45 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:41:00 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,6 @@ void	pre_sort(t_dualstack *dual, const size_t part_cutting);
 // sort_dualstack.c
 
 void	sort_dualstack(t_dualstack *dual);
-
-// rank_sort.c
-
-void	rank_sort(t_dualstack *dual);
 
 // tree_sort.c
 
