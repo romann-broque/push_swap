@@ -6,35 +6,52 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 21:14:28 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 21:17:35 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 23:46:37 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	assign_best_instructions(t_dualstack *dual, t_list *inst1, t_list *inst2)
+static t_list	*get_min_list(t_list **l1, t_list *l2)
 {
-	const size_t	size1 = ft_lstsize(inst1);
-	const size_t	size2 = ft_lstsize(inst2);
+	const size_t	size1 = ft_lstsize(*l1);
+	const size_t	size2 = ft_lstsize(l2);
 
-	if (size1 < size2)
-		dual->instructions = dup_list(inst1);
-	else
-		dual->instructions = dup_list(inst2);
+	if (size1 < size2 && *l1 != NULL)
+		return (*l1);
+	ft_lstclear(l1, NULL);
+	return (dup_list(l2));
 }
 
-void	apply_best_sort(t_dualstack *dual, void (*sort1)(t_dualstack *), void (*sort2)(t_dualstack *))
+static void	apply_sort(t_sort_fct sort, t_dualstack *dual)
 {
-	t_dualstack	dual_cpy1;
-	t_dualstack	dual_cpy2;
+	const size_t	size = ft_lstsize(dual->a);
 
-	cpy_dualstack(&dual_cpy1, dual);
-	cpy_dualstack(&dual_cpy2, dual);
-	sort1(&dual_cpy1);
-	sort2(&dual_cpy2);
-	fact_instructions(&(dual_cpy1.instructions));
-	fact_instructions(&(dual_cpy2.instructions));
-	assign_best_instructions(dual, dual_cpy1.instructions, dual_cpy2.instructions);
-	free_dualstack(&dual_cpy1);
-	free_dualstack(&dual_cpy2);
+	if (size < sort.max_size)
+		sort.sort_fct(dual);
+}
+
+void	apply_best_sort(t_dualstack *dual, t_sort_fct sort_fct_array[SORT_FCT_COUNT + 1])
+{
+	const size_t	size = ft_lstsize(dual->a);
+	t_list			*min_instructions;
+	t_dualstack		dual_cpy;
+	size_t			i;
+
+	min_instructions = NULL;
+	i = 0;
+	while (sort_fct_array[i].sort_fct != NULL)
+	{
+		if (size < sort_fct_array[i].max_size)
+		{
+			cpy_dualstack(&dual_cpy, dual);
+			sort_fct_array[i].sort_fct(&dual_cpy);
+			fact_instructions(&(dual_cpy.instructions));
+			min_instructions = get_min_list(&min_instructions, dual_cpy.instructions);
+			free_dualstack(&dual_cpy);
+		}
+		++i;
+	}
+	dual->instructions = dup_list(min_instructions);
+	ft_lstclear(&min_instructions, NULL);
 }

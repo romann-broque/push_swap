@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 21:19:35 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 23:27:15 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # define INVALID_NB		LONG_MAX
 # define PART_CUTTING	10
+# define SORT_FCT_COUNT 4
 
 //////////////////
 /// STRUCTURES ///
@@ -46,6 +47,12 @@ typedef struct s_dualstack
 	t_tree	*tree;
 }				t_dualstack;
 
+typedef struct s_sort_fct
+{
+	void	(*sort_fct)(t_dualstack *);
+	size_t	max_size;
+}				t_sort_fct;
+
 //////////////////
 /// FUNCTIONS ///
 /////////////////
@@ -60,7 +67,8 @@ bool	is_stack_rev_sorted(t_list *stack);
 
 // pre_sort.c
 
-void	pre_sort(t_dualstack *dual, const size_t part_cutting);
+void	pre_sort_ra(t_dualstack *dual);
+void	pre_sort_rra(t_dualstack *dual);
 
 // sort_dualstack.c
 
@@ -76,7 +84,7 @@ void	rank_sort(t_dualstack *dual);
 
 // apply_best_sort.c
 
-void	apply_best_sort(t_dualstack *dual, void (*sort1)(t_dualstack *), void (*sort2)(t_dualstack *));
+void	apply_best_sort(t_dualstack *dual, t_sort_fct sort_fct_array[SORT_FCT_COUNT + 1]);
 
 // SORT_OPERATIONS
 

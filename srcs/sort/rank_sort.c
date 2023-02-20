@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:50:20 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 18:44:12 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 23:09:03 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static long	get_next_rotate1(t_list *stack)
 	}
 	if (rotate <= (long)(size / 2))
 		return (rotate);
-	return (-(rotate - (size / 2)));
+	return (-(size - rotate));
 }
 
 static long	get_next_rotate2(t_list *stack, const size_t ref_rank)
@@ -58,7 +58,7 @@ static long	get_next_rotate2(t_list *stack, const size_t ref_rank)
 	}
 	if (get_abs(rotate) <= size / 2)
 		return (rotate);
-	return (-(rotate - (size / 2)));
+	return (-(size - rotate));
 }
 
 static void	put_mindisp_top(t_dualstack *dual, const long rotate_count)
