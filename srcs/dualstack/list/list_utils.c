@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 01:08:24 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/17 12:04:10 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 21:19:18 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,17 @@ void	ft_lstprint(const t_list *root)
 		root = root->next;
 	}
 	ft_printf("NULL\n");
+}
+
+t_list	*dup_list(t_list *list)
+{
+	t_list	*new;
+
+	new = NULL;
+	while (list != NULL)
+	{
+		ft_lstadd_back(&new, ft_lstnew(list->content));
+		list = list->next;
+	}
+	return (new);
 }

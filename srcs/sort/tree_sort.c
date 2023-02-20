@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/17 23:28:38 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 18:45:40 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ static void	tree_sort_rec(t_dualstack *dual, t_tree *root, const size_t size)
 	}
 }
 
-void	tree_sort(t_dualstack *dual, t_tree *root)
+void	tree_sort(t_dualstack *dual)
 {
 	const size_t	size = ft_lstsize(dual->a);
+	t_tree *const	root = dual->tree;
 
 	if (is_stack_sorted(dual->a) == false)
 	{

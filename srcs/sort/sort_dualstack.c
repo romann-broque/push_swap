@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:01:08 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 17:34:27 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 21:17:28 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void	sort_dualstack(t_dualstack *dual)
 		else if (size >= PART_CUTTING)
 			pre_sort(dual, 1);
 		else
-		{
-			// apply_best_sort(dual, tree_sort, rank_sort);
-		}
+			apply_best_sort(dual, tree_sort, rank_sort);
 		fact_instructions(&(dual->instructions));
 		print_instructions(dual->instructions);
 	}

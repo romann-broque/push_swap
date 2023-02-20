@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/18 00:18:02 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 21:19:35 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,15 @@ void	sort_dualstack(t_dualstack *dual);
 
 // tree_sort.c
 
-void	tree_sort(t_dualstack *dual, t_tree *root);
+void	tree_sort(t_dualstack *dual);
 
 // rank_sort.c
 
 void	rank_sort(t_dualstack *dual);
+
+// apply_best_sort.c
+
+void	apply_best_sort(t_dualstack *dual, void (*sort1)(t_dualstack *), void (*sort2)(t_dualstack *));
 
 // SORT_OPERATIONS
 
@@ -92,6 +96,7 @@ void	push_index_to_b(t_dualstack *dual, const size_t index);
 
 // tree_utils.c
 
+t_tree	*create_root(const int nb);
 t_tree	*create_tree(t_list *stack);
 void	display_tree(t_tree *root);
 void	clear_tree(t_tree *tree);
@@ -132,6 +137,10 @@ void	rrr(t_dualstack *dual);
 
 // DUAL_STACK //
 
+// cpy_dualstack.c
+
+void	cpy_dualstack(t_dualstack *dest, t_dualstack *src);
+
 // print_dualstack.c
 
 void	print_dualstack(t_dualstack *dual);
@@ -158,6 +167,7 @@ t_list	*gen_list(t_stack *numbers, const size_t count);
 
 // list_utils.c
 
+t_list	*dup_list(t_list *list);
 void	ft_lstinsert(t_list **head, void *content);
 void	ft_lstremove(t_list **head, void (*free_fct)(void *));
 void	ft_contadd_back(t_list **lst, void *content);

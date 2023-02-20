@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:50:20 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 16:28:14 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 18:44:12 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ static void	rank_op(t_dualstack *dual)
 	const long	rotate_count1 = get_next_rotate1(dual->a);
 	long		rotate_count2;
 
-	dprintf(STDERR_FILENO, "rot1-> %ld\n", rotate_count1);
 	if (rotate_count1 != 0)
 	{
 		put_mindisp_top(dual, rotate_count1);
@@ -91,7 +90,6 @@ static void	rank_op(t_dualstack *dual)
 		rotate_count2 = get_next_rotate2(dual->a, ((t_stack *)(dual->b->content))->rank);
 		put_mindisp_top(dual, rotate_count2);
 		pa(dual);
-		dprintf(STDERR_FILENO, "rot2-> %ld\n", rotate_count2);
 	}
 	else
 		sa(dual);
@@ -100,10 +98,7 @@ static void	rank_op(t_dualstack *dual)
 void	rank_sort(t_dualstack *dual)
 {
 	while (is_stack_sorted(dual->a) == false)
-	{
-		print_dualstack(dual);
 		rank_op(dual);
-	}
-	tree_sort(dual, dual->tree);
+	tree_sort(dual);
 	put_top_a(dual, get_index_from_rank(dual->a, 1));
 }

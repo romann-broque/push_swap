@@ -6,13 +6,13 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 19:19:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/01/31 18:30:22 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 18:28:31 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_tree	*create_root(const int nb)
+t_tree	*create_root(const int nb)
 {
 	t_tree	*root;
 
