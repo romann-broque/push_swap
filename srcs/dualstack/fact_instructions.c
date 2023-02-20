@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 21:25:30 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/21 00:26:24 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,16 @@ void	remove_useless_push(t_list **parent)
 
 void	pre_remove_useless_pushswap(t_list **parent)
 {
-	if (ft_lstsize(*parent) >= 3
+	if (ft_lstsize(*parent) >= 4
 		&& ft_strcmp((*parent)->content, "pb") == 0
 		&& ft_strcmp((*parent)->next->content, "sb") == 0
-		&& ft_strcmp((*parent)->next->next->content, "pa") == 0)
+		&& ft_strcmp((*parent)->next->next->content, "pa") == 0
+		&& ft_strcmp((*parent)->next->next->next->content, "pa") == 0)
 	{
 		ft_lstremove(parent, NULL);
 		ft_lstremove(parent, NULL);
-		(*parent)->content = "sa";
+		(*parent)->content = "pa";
+		(*parent)->next->content = "sa";
 	}
 }
 
@@ -72,15 +74,17 @@ void	remove_useless_pushswap(t_list **parent)
 {
 	t_list	*tmp;
 
-	while (ft_lstsize(*parent) > 3)
+	while (ft_lstsize(*parent) > 4)
 	{
 		if (ft_strcmp((*parent)->next->content, "pb") == 0
 			&& ft_strcmp((*parent)->next->next->content, "sb") == 0
-			&& ft_strcmp((*parent)->next->next->next->content, "pa") == 0)
+			&& ft_strcmp((*parent)->next->next->next->content, "pa") == 0
+			&& ft_strcmp((*parent)->next->next->next->next->content, "pa") == 0)
 		{
 			ft_lstremove(&((*parent)->next), NULL);
 			ft_lstremove(&((*parent)->next), NULL);
-			(*parent)->next->content = "sa";
+			(*parent)->next->content = "pa";
+			(*parent)->next->next->content = "sa";
 			remove_useless_pushswap(&((*parent)->next));
 			break ;
 		}
@@ -206,8 +210,8 @@ void	fact_instructions(t_list **parent)
 	//print_instructions(*parent);
 	//printf("<------->\n");
 	//remove_useless_pushback(parent);
-	// pre_remove_useless_pushswap(parent);
-	// remove_useless_pushswap(parent);
+	pre_remove_useless_pushswap(parent);
+	remove_useless_pushswap(parent);
 	remove_useless_push(parent);
 	rotate_fact1(parent);
 	fact_push_rotate(parent);

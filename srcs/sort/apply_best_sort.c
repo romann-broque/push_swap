@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 21:14:28 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 23:46:37 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/20 23:56:57 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static t_list	*get_min_list(t_list **l1, t_list *l2)
 	return (dup_list(l2));
 }
 
-static void	apply_sort(t_sort_fct sort, t_dualstack *dual)
-{
-	const size_t	size = ft_lstsize(dual->a);
+// static void	apply_sort(t_sort_fct sort, t_dualstack *dual)
+// {
+// 	const size_t	size = ft_lstsize(dual->a);
 
-	if (size < sort.max_size)
-		sort.sort_fct(dual);
-}
+// 	if (size < sort.max_size)
+// 		sort.sort_fct(dual);
+// }
 
 void	apply_best_sort(t_dualstack *dual, t_sort_fct sort_fct_array[SORT_FCT_COUNT + 1])
 {
