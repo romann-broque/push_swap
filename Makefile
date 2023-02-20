@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/17 23:12:23 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/18 00:18:49 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ SRCS += is_sorted.c
 SRCS += sort_dualstack.c
 SRCS += pre_sort.c
 SRCS += tree_sort.c
+SRCS += rank_sort.c
 
 # srcs/sort/bin_tree/
 

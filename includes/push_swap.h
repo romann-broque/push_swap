@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/17 18:01:28 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/18 00:18:02 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,10 @@ void	sort_dualstack(t_dualstack *dual);
 // tree_sort.c
 
 void	tree_sort(t_dualstack *dual, t_tree *root);
+
+// rank_sort.c
+
+void	rank_sort(t_dualstack *dual);
 
 // SORT_OPERATIONS
 
@@ -179,6 +183,7 @@ ssize_t	get_index_from_nb(t_list *stack, const int nb);
 ssize_t	get_next_index_from_nb(t_list *stack, const int nb);
 ssize_t	get_prev_index_from_nb(t_list *stack, const int nb);
 ssize_t	get_next_index_from_index(t_list *stack_src, t_list *stack_dest, const size_t index);
+ssize_t	get_index_from_rank(t_list *stack, const size_t rank);
 
 // PARSER //
 

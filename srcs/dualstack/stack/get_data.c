@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:19:22 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/10 16:23:23 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/17 23:28:02 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,19 @@ ssize_t	get_next_index_from_index(t_list *stack_src, t_list *stack_dest, const s
 	if (nb == INVALID_NB)
 		return (0);
 	return (get_index_from_nb(stack_dest, nb));
+}
+
+ssize_t	get_index_from_rank(t_list *stack, const size_t rank)
+{
+	ssize_t	index;
+
+	index = 0;
+	while (stack != NULL && ((t_stack *)(stack->content))->rank != rank)
+	{
+		++index;
+		stack = stack->next;
+	}
+	if (stack == NULL)
+		return (-1);
+	return (index);
 }
