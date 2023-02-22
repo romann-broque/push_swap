@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/20 21:18:36 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/21 16:02:24 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ PATH_SRCS += srcs/
 PATH_SRCS += srcs/dualstack/
 PATH_SRCS += srcs/dualstack/list/
 PATH_SRCS += srcs/dualstack/stack/
+PATH_SRCS += srcs/fact_instructions/
 PATH_SRCS += srcs/operations/
 PATH_SRCS += srcs/parser/
 PATH_SRCS += srcs/sort/
@@ -46,7 +47,6 @@ MAIN += push_swap.c
 
 SRCS += print_dualstack.c
 SRCS += print_instructions.c
-SRCS += fact_instructions.c
 SRCS += cpy_dualstack.c
 SRCS += dualstack_utils.c
 
@@ -60,6 +60,14 @@ SRCS += list_utils.c
 SRCS += set_rank_stack.c
 SRCS += stack_utils.c
 SRCS += get_data.c
+
+# srcs/fact_instructions/
+
+SRCS += fact_instructions.c
+SRCS += rm_useless_push.c
+SRCS += rm_useless_pushswap.c
+SRCS += push_rot_to_swap.c
+SRCS += rotate_fact.c
 
 # srcs/operations/
 

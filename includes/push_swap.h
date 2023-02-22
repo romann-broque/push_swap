@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 23:27:15 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/21 16:02:34 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,14 +157,36 @@ void	print_dualstack(t_dualstack *dual);
 
 void	print_instructions(t_list *instructions);
 
-// fact_instructions.c
-
-void	fact_instructions(t_list **parent);
-
 // dualstack_utils.c
 
 void	init_dualstack(t_dualstack *dual, t_stack *numbers, const size_t size);
 void	free_dualstack(t_dualstack *dual);
+
+// FACT_INSTRUCTIONS //
+
+// fact_instructions.c
+
+void	fact_instructions(t_list **parent);
+
+// rm_useless_push.c
+
+void	pre_remove_useless_push(t_list **parent);
+void	remove_useless_push(t_list **parent);
+
+// rm_useless_pushswap.c
+
+void	pre_remove_useless_pushswap(t_list **parent);
+void	remove_useless_pushswap(t_list **parent);
+
+// rotate_fact.c
+
+void	rotate_fact1(t_list **parent);
+void	rotate_fact2(t_list **parent);
+
+// push_rot_to_swap.c
+
+void	pre_push_rot_to_swap(t_list **parent);
+void	push_rot_to_swap(t_list **parent);
 
 // LIST //
 
