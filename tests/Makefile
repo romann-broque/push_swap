@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:11:15 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/01 16:52:43 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/22 15:29:49 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SHELL = /usr/bin/bash
 ##############
 
 NAME = run_tests
+FORCE_TEST = force_test.sh
 
 ##############
 #### SRCS ####
@@ -36,7 +37,7 @@ SRCS += test_utils.c
 # SRCS += push.test.c
 # SRCS += rotate.test.c
 # SRCS += rev_rotate.test.c
-SRCS += is_stack_sorted.test.c
+#SRCS += is_stack_sorted.test.c
 
 vpath %.c $(PATH_SRCS)
 
@@ -126,6 +127,7 @@ endif
 
 all: $(NAME) $(FDF_OBJS)
 	./$(NAME)
+	./$(FORCE_TEST)
 
 $(NAME): $(LIB_TEST) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(MAIN_OBJS) -o $(NAME) -I $(INCLUDES) $(INCLUDES_LIB) $(LINKS) $(LIB_TEST) $(LIB)

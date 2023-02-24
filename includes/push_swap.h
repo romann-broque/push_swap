@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/21 16:02:34 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 02:12:06 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,7 +186,6 @@ void	rotate_fact2(t_list **parent);
 // push_rot_to_swap.c
 
 void	pre_push_rot_to_swap(t_list **parent);
-void	push_rot_to_swap(t_list **parent);
 
 // LIST //
 

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:01:08 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 23:26:57 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 02:11:02 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ void	sort_dualstack(t_dualstack *dual)
 	{.sort_fct = NULL, .max_size = 0},
 	};
 
-	if (size > 0)
+	if (size > 1)
 	{
 		apply_best_sort(dual, sort_fct_array);
-		fact_instructions(&(dual->instructions));
 		print_instructions(dual->instructions);
 	}
 }
