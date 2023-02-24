@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/21 16:02:24 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/24 16:44:12 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ PATH_SRCS += srcs/fact_instructions/
 PATH_SRCS += srcs/operations/
 PATH_SRCS += srcs/parser/
 PATH_SRCS += srcs/sort/
+PATH_SRCS += srcs/sort/sort_utils/
 PATH_SRCS += srcs/sort/bin_tree/
 PATH_SRCS += srcs/sort/sort_operations/
 
@@ -66,7 +67,6 @@ SRCS += get_data.c
 SRCS += fact_instructions.c
 SRCS += rm_useless_push.c
 SRCS += rm_useless_pushswap.c
-SRCS += push_rot_to_swap.c
 SRCS += rotate_fact.c
 
 # srcs/operations/
@@ -78,11 +78,15 @@ SRCS += rev_rotate.c
 
 # srcs/sort/
 
-SRCS += is_sorted.c
 SRCS += sort_dualstack.c
-SRCS += pre_sort.c
+SRCS += cut_sort.c
 SRCS += tree_sort.c
 SRCS += rank_sort.c
+SRCS += manual_sort.c
+
+# srcs/sort/sort_utils
+
+SRCS += is_sorted.c
 SRCS += apply_best_sort.c
 
 # srcs/sort/bin_tree/

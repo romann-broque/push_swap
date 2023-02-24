@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tree_sort.c                                        :+:      :+:    :+:   */
+/*   manual_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 14:51:57 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 15:30:08 by rbroque          ###   ########.fr       */
+/*   Created: 2023/02/24 16:36:22 by rbroque           #+#    #+#             */
+/*   Updated: 2023/02/24 16:50:04 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	tree_sort_rec(t_dualstack *dual, t_tree *root, const size_t size)
-{
-	if (size > 0)
-	{
-		infix_sort(dual, root);
-		while (dual->b != NULL)
-			pa(dual);
-		tree_sort_rec(dual, root, size / 2);
-	}
-}
-
-void	tree_sort(t_dualstack *dual)
+static bool	is_sort_three(t_dualstack *dual)
 {
 	const size_t	size = ft_lstsize(dual->a);
-	t_tree *const	root = dual->tree;
+	t_list *const	stack = dual->a;
 
-	if (is_stack_sorted(dual->a) == false)
-		tree_sort_rec(dual, root, size);
+	return (size == 3
+		&& ((t_stack *)(stack->content))->nb == 3
+		&& ((t_stack *)(stack->next->content))->nb == 2
+		&& ((t_stack *)(stack->next->next->content))->nb == 1);
+}
+
+void	manual_sort(t_dualstack *dual)
+{
+	if (is_sort_three(dual) == true)
+	{
+		sa(dual);
+		rra(dual);
+	}
 	else
-		put_top_a(dual, get_index_from_rank(dual->a, 1));
+		rank_sort(dual);
 }

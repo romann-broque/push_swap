@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 21:14:28 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/23 16:23:34 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:46:31 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	apply_best_sort(t_dualstack *dual, t_sort_fct sort_fct_array[SORT_FCT_COUNT
 	i = 0;
 	while (sort_fct_array[i].sort_fct != NULL)
 	{
-		if (size < sort_fct_array[i].max_size)
+		if (size <= sort_fct_array[i].max_size)
 		{
 			cpy_dualstack(&dual_cpy, dual);
 			sort_fct_array[i].sort_fct(&dual_cpy);

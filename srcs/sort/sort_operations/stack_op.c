@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:03:04 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/10 15:11:30 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:34:13 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	stack_op(t_dualstack *dual, const int content)
 	bool			is_nextbefore_val;
 
 	is_nextbefore_val = false;
-	if (next_index != -1)
+	if (next_index >= 0)
 		is_nextbefore_val = is_nextbefore(dual, index, next_index);
 	if (is_nextbefore_val == true)
 		push_index_to_b(dual, next_index);

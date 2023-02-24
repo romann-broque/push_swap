@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pre_sort.c                                         :+:      :+:    :+:   */
+/*   cut_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:00:59 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 22:27:39 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:16:40 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static size_t	get_min_rank(t_list *stack)
 	return (min_rank);
 }
 
-static void	pre_sort_op(t_dualstack *dual, const size_t part_count, void (*rot_fct)(t_dualstack *))
+static void	cut_sort_op(t_dualstack *dual, const size_t part_count, void (*rot_fct)(t_dualstack *))
 {
 	const size_t	max_rank = ft_lstsize(dual->a);
 	size_t			curr_min_rank;
@@ -51,24 +51,24 @@ static void	pre_sort_op(t_dualstack *dual, const size_t part_count, void (*rot_f
 	}
 }
 
-static void	pre_sort(t_dualstack *dual, void (*rot_fct)(t_dualstack *))
+static void	cut_sort(t_dualstack *dual, void (*rot_fct)(t_dualstack *))
 {
 	const size_t	size = ft_lstsize(dual->a);
 	const size_t	cut = (ft_log(size / PART_CUTTING) * PART_CUTTING) / 2;
 
 	if (cut > 0)
-		pre_sort_op(dual, cut, rot_fct);
+		cut_sort_op(dual, cut, rot_fct);
 	else
-		pre_sort_op(dual, 1, rot_fct);
+		cut_sort_op(dual, 1, rot_fct);
 	infix_sort_rev(dual, dual->tree);
 }
 
-void	pre_sort_ra(t_dualstack *dual)
+void	cut_sort_ra(t_dualstack *dual)
 {
-	pre_sort(dual, ra);
+	cut_sort(dual, ra);
 }
 
-void	pre_sort_rra(t_dualstack *dual)
+void	cut_sort_rra(t_dualstack *dual)
 {
-	pre_sort(dual, rra);
+	cut_sort(dual, rra);
 }

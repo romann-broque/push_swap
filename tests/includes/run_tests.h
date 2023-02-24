@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:18:47 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/01 16:32:04 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:41:37 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 // TITLE //
 ///////////
 
-# define TEST_TITLE "\n<====== TESTS ======>\n"
+# define TEST_TITLE "\n<====== TESTS ======>\n\n"
 # define SWAP_TEST_TITLE "\n<====== SWAP ======>\n\n"
 # define PUSH_TEST_TITLE "\n<====== PUSH ======>\n\n"
 # define ROTATE_TEST_TITLE "\n<====== ROTATE ======>\n\n"

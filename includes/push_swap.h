@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 02:12:06 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:44:24 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 # define INVALID_NB		LONG_MAX
 # define PART_CUTTING	10
-# define SORT_FCT_COUNT 4
+# define SORT_FCT_COUNT 5
 
 //////////////////
 /// STRUCTURES ///
@@ -65,10 +65,10 @@ bool	is_stack_valid(t_list *stack);
 bool	is_stack_sorted(t_list *stack);
 bool	is_stack_rev_sorted(t_list *stack);
 
-// pre_sort.c
+// cut_sort.c
 
-void	pre_sort_ra(t_dualstack *dual);
-void	pre_sort_rra(t_dualstack *dual);
+void	cut_sort_ra(t_dualstack *dual);
+void	cut_sort_rra(t_dualstack *dual);
 
 // sort_dualstack.c
 
@@ -81,6 +81,12 @@ void	tree_sort(t_dualstack *dual);
 // rank_sort.c
 
 void	rank_sort(t_dualstack *dual);
+
+// manual_sort.c
+
+void	manual_sort(t_dualstack *dual);
+
+// apply_best_sort.c
 
 // apply_best_sort.c
 
@@ -182,10 +188,6 @@ void	remove_useless_pushswap(t_list **parent);
 
 void	rotate_fact1(t_list **parent);
 void	rotate_fact2(t_list **parent);
-
-// push_rot_to_swap.c
-
-void	pre_push_rot_to_swap(t_list **parent);
 
 // LIST //
 

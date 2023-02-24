@@ -14,25 +14,34 @@ path_program="./force/"
 name_program="gen_num.py"
 cache="cache"
 instructions="instructions"
-count=100
+count=1000
 
 ###################
 #### FUNCTIONS ####
 ###################
 
-function	print_load()
+function	print_loading_bar()
 {
-	i=$1
-	count=$2
-	progress=$(($i * 100 / $count))
-	echo -ne "\rProgress: ["
+	progress=$1
+	echo -n "["
 	for j in $(seq 1 $progress); do
 		echo -ne "="
 	done
 	for j in $(seq 1 $((100-$progress))); do
 		echo -ne " "
 	done
-	echo -ne "] $progress%\r"
+	echo -n "]"
+
+}
+
+function	print_load()
+{
+	i=$1
+	count=$2
+	progress=$(($i * 100 / $count))
+	echo -ne "\rProgress: "
+	# print_loading_bar "$progress"
+	echo -ne "$progress%\r"
 }
 
 function	print_result()
@@ -85,7 +94,7 @@ do
 	if [ $result -ne 0 ];
 	then
 		ret=1
-		echo $ARG
+		echo -e "\n$ARG\n"
 	fi
 	print_load $i $count
 done

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:39:27 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/21 17:14:28 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:54:14 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	remove_useless_pushswap(t_list **parent)
 	{
 		if (is_useless_pushswap(&(*parent)->next) == true)
 		{
-			replace_useless_pushswap(&(*parent)->next);
+			replace_useless_pushswap(&((*parent)->next));
 			remove_useless_pushswap(&((*parent)->next));
 			break ;
 		}
