@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 22:40:02 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/02 18:51:15 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:27:08 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_stack	*find_stack(t_list *lst, const int nb)
 {
 	while (lst != NULL)
 	{
-		if (((t_stack *)(lst->content))->nb == nb)
+		if (get_nb(lst) == nb)
 			return (lst->content);
 		lst = lst->next;
 	}

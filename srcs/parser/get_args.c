@@ -6,13 +6,12 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:41:44 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 17:44:27 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:19:31 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#define WHITESPACES " "
 
 char	**get_arguments(char **arg)
 {

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 21:14:28 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 16:46:31 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:02:24 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	apply_best_sort(t_dualstack *dual, t_sort_fct sort_fct_array[SORT_FCT_COUNT
 		{
 			cpy_dualstack(&dual_cpy, dual);
 			sort_fct_array[i].sort_fct(&dual_cpy);
-			fact_instructions(&(dual_cpy.instructions));
+			post_process(&(dual_cpy.instructions));
 			min_instructions = get_min_list(&min_instructions, dual_cpy.instructions);
 			free_dualstack(&dual_cpy);
 		}

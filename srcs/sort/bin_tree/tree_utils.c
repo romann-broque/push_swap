@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 19:19:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/20 18:28:31 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:31:56 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_tree	*create_tree(t_list *stack)
 	tree = NULL;
 	while (stack != NULL)
 	{
-		add_node(&tree, ((t_stack *)(stack->content))->nb);
+		add_node(&tree, get_nb(stack));
 		stack = stack->next;
 	}
 	return (tree);

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:36:22 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 16:50:04 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:29:27 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static bool	is_sort_three(t_dualstack *dual)
 	t_list *const	stack = dual->a;
 
 	return (size == 3
-		&& ((t_stack *)(stack->content))->nb == 3
-		&& ((t_stack *)(stack->next->content))->nb == 2
-		&& ((t_stack *)(stack->next->next->content))->nb == 1);
+		&& get_nb(stack) == 3
+		&& get_nb(stack->next) == 2
+		&& get_nb(stack->next->next) == 1);
 }
 
 void	manual_sort(t_dualstack *dual)

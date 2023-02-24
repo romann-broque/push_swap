@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:50:20 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 01:43:27 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:31:39 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static long	get_next_rotate2(t_list *stack, const size_t ref_rank)
 	i = 0;
 	while (stack != NULL)
 	{
-		if ((long)(((t_stack *)(stack->content))->rank) - (long)ref_rank == 1)
+		if (get_rank(stack) - ref_rank == 1)
 			rotate = i;
 		++i;
 		stack = stack->next;
@@ -87,7 +87,7 @@ static void	rank_op(t_dualstack *dual)
 	{
 		put_mindisp_top(dual, rotate_count1);
 		pb(dual);
-		rotate_count2 = get_next_rotate2(dual->a, ((t_stack *)(dual->b->content))->rank);
+		rotate_count2 = get_next_rotate2(dual->a, get_rank(dual->b));
 		put_mindisp_top(dual, rotate_count2);
 		pa(dual);
 	}

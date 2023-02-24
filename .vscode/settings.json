@@ -13,5 +13,18 @@
 		"ft_strings.h": "c",
 		"ft_memory.h": "c",
 		"math.h": "c"
-	}
+	},
+	"cSpell.words": [
+		"contadd",
+		"dualstack",
+		"lstadd",
+		"lstclear",
+		"lstdelone",
+		"lstlast",
+		"lstnew",
+		"lstprint",
+		"lstremove",
+		"lstsize",
+		"pushswap"
+	]
 }

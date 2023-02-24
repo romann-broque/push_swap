@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:26:21 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/17 17:06:51 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:30:41 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	is_stack_sorted(t_list *stack)
 	{
 		if (stack->next != NULL)
 		{
-			curr_disp = get_disp((t_stack *)(stack->content), (t_stack *)(stack->next->content));
+			curr_disp = get_disp(stack->content, stack->next->content);
 			if (curr_disp != 1)
 			{
 				if (curr_disp != (int)(-(size - 1)))
@@ -53,7 +53,7 @@ bool	is_stack_rev_sorted(t_list *stack)
 	{
 		if (stack->next != NULL)
 		{
-			curr_disp = get_disp((t_stack *)(stack->content), (t_stack *)(stack->next->content));
+			curr_disp = get_disp(stack->content, stack->next->content);
 			if (curr_disp != -1)
 			{
 				if (curr_disp != (int)(size - 1))

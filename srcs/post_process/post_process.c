@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fact_instructions.c                                :+:      :+:    :+:   */
+/*   post_process.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 01:37:25 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 16:34:54 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:06:34 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fact_instructions(t_list **parent)
+void	post_process(t_list **parent)
 {
 	remove_useless_push(parent);
 	rotate_fact1(parent);

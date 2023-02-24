@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:19:22 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/17 23:28:02 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:26:14 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 ssize_t	get_rank_from_nb(t_list *stack, const int nb)
 {
-	while (stack != NULL && ((t_stack *)(stack->content))->nb != nb)
+	while (stack != NULL && get_nb(stack) != nb)
 		stack = stack->next;
 	if (stack == NULL)
 		return (-1);
-	return (((t_stack *)(stack->content))->rank);
+	return (get_rank(stack));
 }
 
 static long	get_nb_from_rank(t_list *stack, const size_t rank)
 {
-	while (stack != NULL && ((t_stack *)(stack->content))->rank != rank)
+	while (stack != NULL && get_rank(stack) != rank)
 		stack = stack->next;
 	if (stack == NULL)
 		return (INVALID_NB);
-	return (((t_stack *)(stack->content))->nb);
+	return (get_nb(stack));
 }
 
 ssize_t	get_index_from_nb(t_list *stack, const int nb)
@@ -35,7 +35,7 @@ ssize_t	get_index_from_nb(t_list *stack, const int nb)
 	ssize_t	index;
 
 	index = 0;
-	while (stack != NULL && ((t_stack *)(stack->content))->nb != nb)
+	while (stack != NULL && get_nb(stack) != nb)
 	{
 		++index;
 		stack = stack->next;
@@ -57,7 +57,7 @@ long	get_nb_from_index(t_list *stack, const size_t index)
 	}
 	if (stack == NULL)
 		return (INVALID_NB);
-	return (((t_stack *)(stack->content))->nb);
+	return (get_nb(stack));
 }
 
 ssize_t	get_next_index_from_nb(t_list *stack, const int nb)
@@ -101,7 +101,7 @@ static size_t	get_rank_from_index(t_list *stack, size_t index)
 	}
 	if (stack == NULL)
 		return (0);
-	return (((t_stack *)(stack->content))->rank);
+	return (get_rank(stack));
 }
 
 ssize_t	get_next_index_from_index(t_list *stack_src, t_list *stack_dest, const size_t index)
@@ -119,7 +119,7 @@ ssize_t	get_index_from_rank(t_list *stack, const size_t rank)
 	ssize_t	index;
 
 	index = 0;
-	while (stack != NULL && ((t_stack *)(stack->content))->rank != rank)
+	while (stack != NULL && get_rank(stack) != rank)
 	{
 		++index;
 		stack = stack->next;

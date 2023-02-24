@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 16:44:24 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:23:42 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 /// DEFINES ///
 ///////////////
 
+# define WHITESPACES	" \b\t\n\v\f\r"
 # define INVALID_NB		LONG_MAX
 # define PART_CUTTING	10
 # define SORT_FCT_COUNT 5
@@ -170,9 +171,9 @@ void	free_dualstack(t_dualstack *dual);
 
 // FACT_INSTRUCTIONS //
 
-// fact_instructions.c
+// post_process
 
-void	fact_instructions(t_list **parent);
+void	post_process(t_list **parent);
 
 // rm_useless_push.c
 
@@ -199,7 +200,6 @@ t_list	*gen_list(t_stack *numbers, const size_t count);
 // list_utils.c
 
 t_list	*dup_list(t_list *list);
-void	ft_lstinsert(t_list **head, void *content);
 void	ft_lstremove(t_list **head, void (*free_fct)(void *));
 void	ft_contadd_back(t_list **lst, void *content);
 void	ft_lstprint(const t_list *root);
@@ -215,6 +215,8 @@ void	set_rank_stack(t_tree *root, t_list *stack);
 int		get_disp(const t_stack *element1, const t_stack *element2);
 bool	isin_stack(t_list *stack, const int nb);
 float	get_average_disp(t_list *stack);
+int		get_nb(t_list *elem_stack);
+size_t	get_rank(t_list *elem_stack);
 
 // get_data.c
 

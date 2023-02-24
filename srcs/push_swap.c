@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:28:07 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/17 16:12:13 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:13:53 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	push_swap(char **strs)
 {
-	t_dualstack	dual;
-	t_stack		*numbers;
-	char		**arg;
-	size_t		count;
+	char **const	arg = get_arguments(strs);
+	const size_t	count = get_strs_size(arg);
+	t_dualstack		dual;
+	t_stack			*numbers;
 
-	arg = get_arguments(strs);
-	count = get_strs_size(arg);
 	if (are_nb_valid(arg) == true)
 	{
 		numbers = get_numbers(arg, count);
