@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:03:50 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/14 02:14:48 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:35:48 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	put_top_a(t_dualstack *dual, const size_t index)
 			ra(dual);
 		else
 			rra(dual);
-//		print_dualstack(dual);
 		curr_stack = (dual->a->content);
 	}
 }
@@ -43,7 +42,6 @@ void	put_top_b(t_dualstack *dual, const size_t index)
 			rb(dual);
 		else
 			rrb(dual);
-//		print_dualstack(dual);
 		curr_stack = (dual->b->content);
 	}
 }

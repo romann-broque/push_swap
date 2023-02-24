@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:26:21 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 17:30:41 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:37:05 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ bool	is_stack_valid(t_list *stack)
 {
 	while (stack != NULL)
 	{
-		if (stack->next != NULL && get_disp(stack->content, stack->next->content) != 1)
+		if (stack->next != NULL
+			&& get_disp(stack->content, stack->next->content) != 1)
 			return (false);
 		stack = stack->next;
 	}

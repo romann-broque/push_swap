@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:00:59 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 17:28:34 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:35:08 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ static size_t	get_min_rank(t_list *stack)
 	return (min_rank);
 }
 
-static void	cut_sort_op(t_dualstack *dual, const size_t part_count, void (*rot_fct)(t_dualstack *))
+static void	cut_sort_op(
+	t_dualstack *dual,
+	const size_t part_count,
+	void (*rot_fct)(t_dualstack *))
 {
 	const size_t	max_rank = ft_lstsize(dual->a);
 	size_t			curr_min_rank;
@@ -46,7 +49,8 @@ static void	cut_sort_op(t_dualstack *dual, const size_t part_count, void (*rot_f
 			if (stack->rank >= (part * max_rank) / part_count)
 				rb(dual);
 		}
-		else if (part < part_count && curr_min_rank > (part * max_rank) / part_count)
+		else if (part < part_count
+			&& curr_min_rank > (part * max_rank) / part_count)
 			++part;
 		else
 			rot_fct(dual);

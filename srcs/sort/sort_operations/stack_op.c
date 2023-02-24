@@ -6,13 +6,16 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:03:04 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 15:34:13 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:36:07 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	is_nextbefore(t_dualstack *dual, const size_t index, const size_t next_index)
+static bool	is_nextbefore(
+	t_dualstack *dual,
+	const size_t index,
+	const size_t next_index)
 {
 	const size_t	half_size = ft_lstsize(dual->a);
 
