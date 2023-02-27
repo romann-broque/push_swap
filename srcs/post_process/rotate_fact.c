@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:43:37 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/21 17:23:57 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/27 23:47:54 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static bool	is_rotate(t_list **parent)
 			&& ft_strcmp((*parent)->next->next->content, "rb") == 0)
 		|| (ft_strcmp((*parent)->next->content, "rb") == 0
 			&& ft_strcmp((*parent)->next->next->content, "ra") == 0));
-
 }
 
 static bool	is_rev_rotate(t_list **parent)

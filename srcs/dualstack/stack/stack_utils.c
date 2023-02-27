@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:23 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 17:32:40 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/27 23:39:57 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	get_nb(t_list *elem_stack)
 {
-	return (((t_stack *)(elem_stack))->nb);
+	return (((t_stack *)(elem_stack->content))->nb);
 }
 
 size_t	get_rank(t_list *elem_stack)
 {
-	return (((t_stack *)(elem_stack))->rank);
+	return (((t_stack *)(elem_stack->content))->rank);
 }
 
 int	get_disp(const t_stack *element1, const t_stack *element2)
