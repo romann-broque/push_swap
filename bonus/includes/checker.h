@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 18:24:09 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 17:45:27 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 18:32:52 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 
 # define OP_COUNT 11
 # define OP_MAX_LEN 4
+
+// are_instructions_valid.c
+
+bool	are_instructions_valid(char **instructions);
 
 // checker_utils.c
 

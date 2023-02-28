@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/28 17:43:15 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/28 18:32:43 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,6 +119,7 @@ PATH_SRCS_BONUS += bonus/srcs/operations
 # checker_dir/srcs
 
 BONUS_MAIN += checker.c
+SRCS_BONUS += are_instructions_valid.c
 SRCS_BONUS += read_instructions.c
 SRCS_BONUS += checker_utils.c
 

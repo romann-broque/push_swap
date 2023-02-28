@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 22:30:05 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 14:08:14 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 18:31:02 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ char	**get_instructions(void)
 
 	content = get_stdin_reading();
 	instructions = ft_split(content, '\n');
-	// check if instructions are correct
 	free(content);
 	return (instructions);
 }
