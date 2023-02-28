@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/28 18:32:43 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/28 18:42:21 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ SHELL = /usr/bin/bash
 ##############
 
 NAME = push_swap
-NAME_BONUS = checker
 DEFAULT_ARG = 1 0 3 4
+NAME_BONUS = checker
 
 ##############
 #### SRCS ####
@@ -47,7 +47,6 @@ MAIN += push_swap.c
 
 # srcs/dualstack/
 
-SRCS += print_dualstack.c
 SRCS += print_instructions.c
 SRCS += cpy_dualstack.c
 SRCS += dualstack_utils.c
@@ -243,10 +242,14 @@ endif
 
 all: $(LIBFT) $(NAME)
 
+# LIBFT
+
 $(LIBFT):
 	echo -e $(BLUE) "\n====> Building libft.a <===="$(NC)"\n"
 	$(MAKE) -sC $(LIB_FOLDER)
 	echo -e $(BLUE) "\n====> Building $(NAME) <===="$(NC)"\n"
+
+# PUSH_SWAP
 
 $(NAME): $(OBJS_MAND) $(OBJS_MAIN)
 	$(CC) $(CFLAGS) $(OBJS_MAND) $(OBJS_MAIN) -o $(NAME) $(INCLUDES) $(LIBFT)
@@ -261,6 +264,8 @@ $(OBJS_MAND): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
 	$(ECHO) $(ORANGE) "Compiling $<"
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
+
+# CHECKER
 
 $(NAME_BONUS): $(BONUS_LIB) $(OBJS_BONUS_MAIN)
 	$(CC) $(CFLAGS) $(OBJS_BONUS) $(OBJS_BONUS_MAIN) -o $(NAME_BONUS) $(INCLUDES) $(LIBFT) $(BONUS_LIB)
@@ -280,8 +285,9 @@ $(BONUS_LIB): $(OBJS_MAND) $(OBJS_BONUS)
 	cp $(LIBFT) $(BONUS_LIB)
 	ar rs $(BONUS_LIB) $(OBJS_MAND) $(OBJS_BONUS)
 
-bonus: all $(NAME_BONUS)
-	./$(NAME_BONUS)
+# OTHERS
+
+bonus: $(LIBFT) $(NAME) $(NAME_BONUS)
 
 run:
 	$(MAKE) -s

@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:31:21 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 18:33:31 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 18:35:59 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ bool	are_instructions_valid(char **instructions)
 	while (instructions != NULL && *instructions != NULL
 		&& is_instruction_valid(*instructions) == true)
 		++instructions;
-	return (instructions == NULL);
+	return (instructions != NULL && *instructions == NULL);
 }
