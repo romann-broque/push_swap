@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 00:00:16 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 14:26:51 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ void	manual_sort(t_dualstack *dual);
 
 // apply_best_sort.c
 
-void	apply_best_sort(t_dualstack *dual, t_sort_fct sort_fct_array[SORT_FCT_COUNT + 1]);
+void	apply_best_sort(
+			t_dualstack *dual,
+			t_sort_fct sort_fct_array[SORT_FCT_COUNT + 1]);
 
 // SORT_OPERATIONS
 
@@ -224,7 +226,10 @@ ssize_t	get_index_from_nb(t_list *stack, const int nb);
 ssize_t	get_index_from_rank(t_list *stack, const size_t rank);
 ssize_t	get_next_index_from_nb(t_list *stack, const int nb);
 ssize_t	get_prev_index_from_nb(t_list *stack, const int nb);
-ssize_t	get_next_index_from_index(t_list *stack_src, t_list *stack_dest, const size_t index);
+ssize_t	get_next_index_from_index(
+			t_list *stack_src,
+			t_list *stack_dest,
+			const size_t index);
 
 // get_rank.c
 
