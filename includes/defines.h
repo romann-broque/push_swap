@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:45:51 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 14:52:21 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:04:24 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 # define INVALID_NB		LONG_MAX
 # define PART_CUTTING	10
 # define SORT_FCT_COUNT 5
+# define EXIT_ERROR		2
 
 #endif

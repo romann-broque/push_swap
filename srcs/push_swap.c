@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 00:28:07 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/24 17:13:53 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:00:14 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	push_swap(char **strs)
 		free(numbers);
 	}
 	else
-		ft_printf("ERROR\n");
+		ft_dprintf(STDERR_FILENO, "ERROR\n");
 	free_strs(arg);
 }
 

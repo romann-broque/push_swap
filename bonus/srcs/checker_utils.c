@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:41:52 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 18:25:44 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:04:38 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ size_t	get_str_index(const char array[OP_COUNT][OP_MAX_LEN], const char *str)
 void	print_result(const int result)
 {
 	if (result == EXIT_SUCCESS)
-		ft_printf("OK");
+		ft_printf("OK\n");
+	else if (result == EXIT_FAILURE)
+		ft_printf("KO\n");
 	else
-		ft_printf("KO");
+		ft_dprintf(STDERR_FILENO, "ERROR\n");
 }
 
 void	apply_instructions(t_dualstack *dual)

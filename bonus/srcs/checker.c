@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:54:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 18:36:41 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:03:59 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ int	checker(char **strs)
 	if (are_nb_valid(numbers) == true)
 	{
 		instructions = get_instructions();
-		if (are_instructions_valid(instructions) == true
-			&& sort_stack(numbers, instructions) == EXIT_SUCCESS)
+		if (are_instructions_valid(instructions) == false)
+			ret_val = EXIT_ERROR;
+		else if (sort_stack(numbers, instructions) == EXIT_SUCCESS)
 			ret_val = EXIT_SUCCESS;
 	}
 	free_strs(numbers);
@@ -63,6 +64,5 @@ int	main(const int ac, char **av)
 		ret_val = checker(av + 1);
 		print_result(ret_val);
 	}
-	ft_printf("\n");
-	return (ret_val);
+	return (ret_val == EXIT_SUCCESS);
 }
