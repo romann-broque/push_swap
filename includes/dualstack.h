@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:31:21 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 14:52:28 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 17:07:21 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ void	print_instructions(t_list *instructions);
 
 void	init_dualstack(t_dualstack *dual, t_stack *numbers, const size_t size);
 void	free_dualstack(t_dualstack *dual);
-
 
 #endif

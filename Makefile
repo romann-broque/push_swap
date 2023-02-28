@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/28 14:52:03 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/28 17:17:47 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,8 +113,8 @@ SRCS += parser_utils.c
 
 ### BONUS ###
 
-PATH_SRCS_BONUS += checker_dir/srcs
-PATH_SRCS_BONUS += checker_dir/srcs/operations
+PATH_SRCS_BONUS += bonus/srcs
+PATH_SRCS_BONUS += bonus/srcs/operations
 
 # checker_dir/srcs
 
@@ -156,13 +156,14 @@ BONUS_LIB = libbonus.a
 #### INCLUDES #####
 ###################
 
-INCLUDES_LIB += -I $(LIB_FOLDER)/includes/
-CHECK_INCLUDES += -I checker_dir/includes/
-INCLUDES += -I includes/
-INCLUDES += $(INCLUDES_LIB)
+INCLUDES_LIB += $(LIB_FOLDER)/includes/
+CHECK_INCLUDES += bonus/includes/
+INCLUDES_PUSHSWAP += includes/
+INCLUDES += -I $(INCLUDES_LIB)
+INCLUDES += -I $(INCLUDES_PUSHSWAP)
 
 ifeq (bonus, $(findstring bonus, $(MAKECMDGOALS)))
-	INCLUDES += $(CHECK_INCLUDES)
+	INCLUDES += -I $(CHECK_INCLUDES)
 endif
 
 #################
@@ -189,13 +190,6 @@ vpath %.h $(INCLUDES)
 ##################
 
 MAKEFILE = Makefile
-
-###############
-#### TESTS ####
-###############
-
-TEST_FOLDER = tests/
-RUN_TESTS = $(TEST_FOLDER)run_tests
 
 #####################
 #### COMPILATION ####
@@ -292,35 +286,26 @@ run:
 	./$(NAME) $(DEFAULT_ARG)
 
 norm:
-	norminette $(PATH_SRCS) $(INCLUDES) $(LIB_FOLDER)
-
-test:
-	$(MAKE) -s
-	$(MAKE) -sC $(TEST_FOLDER)
+	norminette $(PATH_SRCS) $(INCLUDES_PUSHSWAP) $(LIB_FOLDER)
 
 clean:
 	$(RM) -R $(PATH_OBJS)
 	$(MAKE) -sC $(LIB_FOLDER) clean > /dev/null
-	$(MAKE) -sC $(TEST_FOLDER) clean > /dev/null
 	$(ECHOC) $(GREEN) "--> .o files deleted !"$(NC)"\n"
 
 fclean: clean
 	$(ECHOC) $(YELLOW) "Cleaning up $(NAME)..." $(NC)
 	$(MAKE) -sC $(LIB_FOLDER) fclean > /dev/null
-	$(MAKE) -sC $(TEST_FOLDER) fclean > /dev/null
 	$(RM) $(NAME)
 	$(RM) $(NAME_BONUS)
 	$(RM) $(BONUS_LIB)
 	$(ECHOC) $(GREEN) "--> $(NAME) deleted !"$(NC)"\n"
 	$(ECHOC) $(GREEN) "--> $(NAME_BONUS) deleted !"$(NC)"\n"
 	$(ECHOC) $(GREEN) "--> $(BONUS_LIB) deleted !"$(NC)"\n"
-	$(ECHOC) $(GREEN) "--> $(RUN_TESTS) deleted !"$(NC)"\n"
 
 re: fclean
 	echo -e $(YELLOW) "\nRebuilding..." $(NC)
 	$(MAKE) -s
 
 .PHONY: all clean fclean re run bonus
-.SILENT: $(NAME) $(NAME_BONUS) $(LIBFT) $(OBJS_MAND) $(OBJS_BONUS) $(OBJS_MAIN) $(OBJS_BONUS_MAIN) $(BONUS_LIB) run clean fclean re test bonus
-
-#endif
+.SILENT: $(NAME) $(NAME_BONUS) $(LIBFT) $(OBJS_MAND) $(OBJS_BONUS) $(OBJS_MAIN) $(OBJS_BONUS_MAIN) $(BONUS_LIB) run clean fclean re bonus
