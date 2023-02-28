@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 14:53:48 by rbroque          ###   ########.fr       */
+/*   Created: 2023/02/28 14:32:43 by rbroque           #+#    #+#             */
+/*   Updated: 2023/02/28 14:53:06 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef STACK_H
+# define STACK_H
 
-# include "libft.h"
-# include "defines.h"
-# include "type.h"
-# include "bin_tree.h"
-# include "dualstack.h"
-# include "get_data.h"
-# include "list.h"
-# include "operations.h"
-# include "parser.h"
-# include "post_process.h"
-# include "sort.h"
-# include "stack.h"
+# include "push_swap.h"
+
+// STACK //
+
+// set_rank_stack.c
+
+void	set_rank_stack(t_tree *root, t_list *stack);
+
+// stack_utils.c
+
+int		get_disp(const t_stack *element1, const t_stack *element2);
+bool	isin_stack(t_list *stack, const int nb);
+float	get_average_disp(t_list *stack);
+int		get_nb(t_list *elem_stack);
+size_t	get_rank(t_list *elem_stack);
+
 
 #endif

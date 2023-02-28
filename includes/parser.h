@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 00:29:18 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 14:53:48 by rbroque          ###   ########.fr       */
+/*   Created: 2023/02/28 14:33:47 by rbroque           #+#    #+#             */
+/*   Updated: 2023/02/28 14:52:46 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PARSER_H
+# define PARSER_H
 
-# include "libft.h"
-# include "defines.h"
-# include "type.h"
-# include "bin_tree.h"
-# include "dualstack.h"
-# include "get_data.h"
-# include "list.h"
-# include "operations.h"
-# include "parser.h"
-# include "post_process.h"
-# include "sort.h"
-# include "stack.h"
+# include "push_swap.h"
+
+// PARSER //
+
+// parsing_nb.c
+
+bool	are_nb_valid(char **numbers);
+
+// get_args.c
+
+char	**get_arguments(char **arg);
+
+// parser_utils.c
+
+size_t	get_strs_size(char **strs);
+void	add_strs(char ***dest, char **src, const size_t size2);
+void	cpy_arg(char ***dest, char **arg);
 
 #endif

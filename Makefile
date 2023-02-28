@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/27 23:57:19 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/28 14:52:03 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -169,7 +169,18 @@ endif
 #### HEADERS ####
 #################
 
-HEADER = push_swap.h
+HEADERS += bin_tree.h
+HEADERS += defines.h
+HEADERS += dualstack.h
+HEADERS += get_data.h
+HEADERS += list.h
+HEADERS += operations.h
+HEADERS += parser.h
+HEADERS += post_process.h
+HEADERS += push_swap.h
+HEADERS += sort.h
+HEADERS += stack.h
+HEADERS += type.h
 
 vpath %.h $(INCLUDES)
 
@@ -250,7 +261,7 @@ $(OBJS_MAIN): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
-$(OBJS_MAND): $(PATH_OBJS)/%.o: %.c $(HEADER) $(MAKEFILE)
+$(OBJS_MAND): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
 	$(ECHO) $(ORANGE) "Compiling $<"
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
