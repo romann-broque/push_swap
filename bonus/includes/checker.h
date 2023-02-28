@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 18:24:09 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/06 15:21:18 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 17:45:27 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 # define CHECKER_H
 
 # include "push_swap.h"
+
+# define OP_COUNT 11
+# define OP_MAX_LEN 4
+
+// checker_utils.c
+
+size_t	get_array_size(char **strs);
+t_list	*gen_instructions_list(char **elements);
+size_t	get_str_index(const char array[OP_COUNT][OP_MAX_LEN], const char *str);
+void	print_result(const int result);
+void	apply_instructions(t_dualstack *dual);
 
 // read_instructions.c
 
