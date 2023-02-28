@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:00:59 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/26 13:08:03 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 14:10:28 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static size_t	get_min_rank(t_list *stack)
 }
 
 static void	cut_sort_op(
-	t_dualstack *dual,
+	t_dualstack	*dual,
 	const size_t part_count,
 	void (*rot_fct)(t_dualstack *))
 {

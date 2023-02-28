@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/24 17:01:43 by rbroque          ###   ########.fr        #
+#    Updated: 2023/02/27 23:57:19 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ PATH_SRCS += srcs/
 PATH_SRCS += srcs/dualstack/
 PATH_SRCS += srcs/dualstack/list/
 PATH_SRCS += srcs/dualstack/stack/
+PATH_SRCS += srcs/dualstack/stack/get_data
 PATH_SRCS += srcs/post_process/
 PATH_SRCS += srcs/operations/
 PATH_SRCS += srcs/parser/
@@ -60,7 +61,12 @@ SRCS += list_utils.c
 
 SRCS += set_rank_stack.c
 SRCS += stack_utils.c
-SRCS += get_data.c
+
+# srcs/dualstack/stack/get_data
+
+SRCS += get_index.c
+SRCS += get_nb.c
+SRCS += get_rank.c
 
 # srcs/post_process/
 

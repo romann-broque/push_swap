@@ -31,7 +31,6 @@ function	print_loading_bar()
 		echo -ne " "
 	done
 	echo -n "]"
-
 }
 
 function	print_load()
