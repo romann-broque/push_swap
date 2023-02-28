@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:54:29 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 19:03:59 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:06:18 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ int	main(const int ac, char **av)
 		ret_val = checker(av + 1);
 		print_result(ret_val);
 	}
-	return (ret_val == EXIT_SUCCESS);
+	return (ret_val != EXIT_SUCCESS);
 }
