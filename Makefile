@@ -6,7 +6,7 @@
 #    By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:20:37 by rbroque           #+#    #+#              #
-#    Updated: 2023/02/28 18:42:21 by rbroque          ###   ########.fr        #
+#    Updated: 2023/03/04 14:36:37 by rbroque          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -226,14 +226,15 @@ BLUE='\033[1;36m'
 NC='\033[0m' # No Color
 
 ifndef ECHO
-T := $(shell $(MAKE) $(MAKECMDGOALS) --no-print-directory \
-      -nrRf $(firstword $(MAKEFILE_LIST)) \
-      ECHO="COUNTTHIS" | grep -c "COUNTTHIS")
+T := $(words $(SRCS) $(MAIN))
+T_BONUS := $(words $(SRCS_BONUS) $(BONUS_MAIN))
 N := x
+N_BONUS := x
 C = $(words $N)$(eval N := x $N)
-
+C_BONUS = $(words $(N_BONUS))$(eval N_BONUS := x $(N_BONUS))
 ECHOC = echo -ne "\r\033[2K"
 ECHO = $(ECHOC) $(ORANGE) "[`expr $C '*' 100 / $T`%]"
+ECHO_BONUS = $(ECHOC) $(ORANGE) "[`expr $(C_BONUS) '*' 100 / $(T_BONUS)`%]"
 endif
 
 ###############
@@ -272,12 +273,12 @@ $(NAME_BONUS): $(BONUS_LIB) $(OBJS_BONUS_MAIN)
 	$(ECHOC) $(GREEN) "--> $(NAME_BONUS) COMPILED !"$(NC)"\n\n"
 
 $(OBJS_BONUS_MAIN): $(PATH_OBJS)/%.o: %.c $(HEADER) $(MAKEFILE)
-	$(ECHO) $(ORANGE) "Compiling $<"
+	$(ECHO_BONUS) $(ORANGE) "Compiling $<"
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
 $(OBJS_BONUS): $(PATH_OBJS)/%.o: %.c $(HEADERS) $(MAKEFILE)
-	$(ECHO) $(ORANGE) "Compiling $<"
+	$(ECHO_BONUS) $(ORANGE) "Compiling $<"
 	mkdir -p $(PATH_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -O3
 
