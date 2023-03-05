@@ -6,7 +6,7 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:00:59 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/28 14:10:28 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/03/05 18:31:31 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	cut_sort_op(
 static void	cut_sort(t_dualstack *dual, void (*rot_fct)(t_dualstack *))
 {
 	const size_t	size = ft_lstsize(dual->a);
-	const size_t	cut = (ft_log(size / PART_CUTTING) * PART_CUTTING) / 2;
+	const double	cut = (ft_log(size / PART_CUTTING) * PART_CUTTING) / 2;
 
 	if (cut > 0)
 		cut_sort_op(dual, cut, rot_fct);
